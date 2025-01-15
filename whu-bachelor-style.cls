@@ -11,7 +11,7 @@
 %% ----------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{WHUBachelor}[Wuhan University Thesis Template for Bachelor Degree]
+\ProvidesClass{whu-bachelor-style}[Wuhan University Thesis Template for Bachelor Degree]
 
 %%% ---- 载入Class ----- %%%
 \LoadClass[a4paper,openany,oneside]{book} % A4大小，book布局
