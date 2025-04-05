@@ -22,19 +22,26 @@
 
 %%% ---- 定义页边距 ----- %%%
 \RequirePackage{geometry}
-\geometry{left=2.6cm,right=2.6cm,top=3cm,bottom=3cm,includefoot,xetex}
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm,includefoot,xetex}
+% \RequirePackage{xcolor} % 颜色
+% \definecolor{headercolor}{RGB}{0, 0, 255} % 定义蓝色
 
 \RequirePackage{fancyhdr}             % 页眉页脚宏包
 \renewcommand{\headrulewidth}{0.4pt}  % 页眉线宽
 \renewcommand{\footrulewidth}{0pt}    % 页脚线宽
 
 
-% 默认页面页眉页脚样式
+% % 默认页面页眉页脚样式 (空白)
+\pagestyle{empty} % 启动页眉页脚样式
+% 带页眉的样式
 \fancypagestyle{plain}{
     \fancyhf{}
+    % \fancyhead[C]{\textcolor{headercolor}{武汉大学本科毕业论文（设计）}}
+    \fancyhead[C]{武汉大学本科毕业论文（设计）}
     \fancyfoot[C]{\zihao{5}\thepage}  % 页码位于页脚居中
 }
-\pagestyle{plain}
+% \pagestyle{plain} % 启动页眉页脚样式
+
 
 %%% ---- 定义标题和段落样式 ----- %%%
 % 定义1.5倍行距
@@ -47,6 +54,7 @@
 \ctexset{subsection={format={\raggedright \heiti \zihao{-4}}}}      % 二级标题 黑体小4号
 \ctexset{subsubsection={format={\raggedright \heiti \zihao{-4}}}}   % 三级标题 黑体小4号
 
+% \songti 宋体 \heiti 黑体  \kaishu 楷体 \fangsong 仿宋
 
 % 目录样式设置
 \RequirePackage{tocloft}
@@ -81,10 +89,12 @@
 
 %%% ---- 图表标题设置 ----- %%%
 \RequirePackage[labelsep=quad]{caption}     % 序号之后空一格写标题
-% 设置表格标题字体为黑体, 设置图标题字体为宋体
-% \captionsetup[table]{textfont=bf}
-\renewcommand\figurename{\bf\songti\zihao{-4} 图}
-\renewcommand\tablename{\songti\bf\zihao{-4} 表}
+% 设置表格标题、图标题字体为宋体
+\captionsetup[figure]{textfont=bf}
+\renewcommand\figurename{\bf\songti\zihao{5} 图}
+\captionsetup[table]{textfont=bf}
+\renewcommand\tablename{\bf\songti\zihao{5} 表}
+
 
 % 使用tabularx创建占满宽度的表格
 \RequirePackage{tabularx, makecell}
@@ -104,10 +114,12 @@
 \long\def\@makefnmark{%
 \hbox {{\normalfont \textsuperscript{\circled{\@thefnmark}}}}}%
 \makeatother
+% 正文中的编号
 \makeatletter%
 \long\def\@makefntext#1{%
   \parindent 1em\noindent \hb@xt@ 1.8em{\hss \circled{\@thefnmark}}#1}%
 \makeatother
+% 页脚中的编号
 \skip\footins=10mm plus 1mm
 \footnotesep=6pt
 \renewcommand{\footnotesize}{\songti\zihao{5}}
@@ -167,10 +179,15 @@
 \RequirePackage[sort&compress]{natbib}
 \setcitestyle{numbers,square,comma}
 \ctexset{bibname={参考文献}}
+% \bibliographystyle{data/whu}  % 参考文献样式
 \bibliographystyle{data/gbt7714-2005-whu}  % 参考文献样式
 
+
+% \RequirePackage[draft]{hyperref} % 引用 (但不生成链接)
 \RequirePackage{hyperref} % 引用
-\hypersetup{citecolor=magenta,linkcolor=black,urlcolor=blue} % 设置引用链接颜色
+% \hypersetup{citecolor=magenta,linkcolor=black,urlcolor=blue} % 设置引用链接颜色
+\hypersetup{hidelinks} % 隐藏所有引用颜色
+
 
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}} % 自定义新命令\upcite, 使参考文献引用以上标出现
 
@@ -204,28 +221,37 @@
 \def\maketitlepage{
   \thispagestyle{empty}
   \begin{center}
-    {\heiti \zihao{5} \hfill 
-    \begin{minipage}[t]{4.5cm}
-      学号\ ：\uline{\hfill\hspace{3mm}\@stunum\hspace{3mm}\hfill} \\[2mm]
-      密级\ ：\uline{\hfill \hfill}
-    \end{minipage}}
-    \par \vspace*{6em}
-    {\songti \zihao{1} 武汉大学本科毕业论文}
+    % {\heiti \zihao{5} \hfill 
+    % \begin{minipage}[t]{4.5cm}
+    %   学号\ ：\uline{\hfill\hspace{3mm}\@stunum\hspace{3mm}\hfill} \\[2mm]
+    %   密级\ ：\uline{\hfill \hfill}
+    % \end{minipage}}
+    % \par \vspace*{6em}
+
+    \begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.4\textwidth]
+      {figures/whutitle.png}\\
+      \label{fig:whutitle}
+    \end{figure}
+    {\zihao{2}\vspace{\baselineskip}}
+    \textbf{\songti \zihao{2}  本科毕业论文（设计）}
     \par \vspace{5em}
     \begin{minipage}[c][6cm]{16cm}
         \setlength{\baselineskip}{32pt} 
-        \centering {\heiti \zihao{2} \@ctitle}
+        \centering {\kaishu \zihao{1} \@ctitle}
     \end{minipage}
     \par \vspace{4em}
     {\songti \zihao{-3}
-      \begin{tabular}{cl}
-        \makebox[4cm][s]{院\ 系\ 名\ 称\ ：}   & \@cschool   \\[1ex]
-        \makebox[4cm][s]{专\ 业\ 名\ 称\ ：}                                 & \@cmajor    \\[1ex]
-        \makebox[4cm][s]{学\ 生\ 姓\ 名\ ：}                                 & \@cauthor   \\[1ex]
-        \makebox[4cm][s]{指\ 导\ 教\ 师\ ：}                                 & \@cadvisor  \\[1ex]
+      \begin{tabular}{cc}
+        \makebox[4cm][s]{姓\ \ \ 名\ ：}                                 & \@cauthor   \\[1ex]
+        \makebox[4cm][s]{学\ \ \ 号\ ：}                                 & \@stunum   \\[1ex]
+        \makebox[4cm][s]{专\ \ \ 业\ ：}                                 & \@cmajor    \\[1ex]
+        \makebox[4cm][s]{学\ \ \ 院\ ：}   & \@cschool   \\[1ex]
+        \makebox[4cm][s]{指导教师\ ：}                                 & \@cadvisor  \\[1ex]
       \end{tabular}}
     \par \vspace{5em}
-    {\songti \zihao{-2} \@cdate}
+    {\songti \zihao{4} \@cdate}
   \end{center}
   \clearpage
 }
@@ -234,64 +260,99 @@
 \def\makestatement{
   \thispagestyle{empty}
   % \vspace*{40pt}
-  \begin{center}{\ziju{0.5}\songti \zihao{2} \textbf{原创性声明}}\end{center}
+  \begin{center}{\heiti \zihao{-2} 原创性声明}\end{center}
   \par\vspace*{20pt}
   \setlength{\baselineskip}{23pt}
-  {\zihao{4}
-  本人郑重声明：所呈交的论文，是本人在指导教师的指导下，严格按照学校和学院有关规定完成的。除文中已经标明引用的内容外，本论文不包含任何其他个人或集体已发表及撰写的研究成果。对本论文做出贡献的个人和集体，均已在文中以明确方式标明。本人承诺在论文工作过程中没有伪造数据等行为。若在本论文中有侵犯任何方面知识产权的行为，由本人承担相应的法律责任。
+  {\zihao{-4}
+  本人郑重声明：所呈交的论文（设计），是本人在指导教师的指导下，严格按照学校和学院有关规定完成的。除文中已经标明引用的内容外，本论文（设计）不包含任何其他个人或集体已发表及撰写的研究成果。对本论文（设计）做出贡献的个人和集体，均已在文中以明确方式标明。本人承诺在论文（设计）工作过程中没有伪造数据等行为。若在本论文（设计）中有侵犯任何方面知识产权的行为，由本人承担相应的法律责任。
   \vspace*{30pt}\newline
-  作者签名: \underline{\hspace{2.5cm}}
-  \hspace{0.6cm}指导教师签名: \underline{\hspace{2.5cm}}
-  \hspace{0.6cm}日期: \underline{\hspace{2.5cm}}\hfill\par}
+  \begin{flushright} % 右对齐
+    % 作者签名： \hspace{2cm}   指导教师签名：  \hspace{2cm} \newline
+    % 日 \quad 期：  \hspace{1cm}年 \hspace{1cm} 月 \hspace{1cm} 日 
+    \begin{tabular}{ll} % 调整列宽以适应你的排版
+      &作者签名： \hspace{2cm}   指导教师签名：  \hspace{3cm} \hfill \\[2ex] % 填充空白 % 额外添加 2ex 的垂直空间
+      &日 \quad 期：  \hspace{1cm}年 \hspace{0.5cm} 月 \hspace{0.5cm} 日 
+    \end{tabular}
+  \end{flushright}
+  }
+  
+  % 作者签名: \underline{\hspace{2.5cm}}
+  % \hspace{0.6cm}指导教师签名: \underline{\hspace{2.5cm}}
+  % \hspace{0.6cm}日期: \underline{\hspace{2.5cm}}\hfill\par}
+
+
 
   \vspace*{140pt}
-  \begin{center}{\ziju{0.5}\songti \zihao{2} \textbf{版权使用授权书}}\end{center}
+  \begin{center}{\heiti \zihao{-2} 版权使用授权书}\end{center}
   \par\vspace*{20pt}
   \setlength{\baselineskip}{23pt}
-  {\zihao{4}
-  本人完全了解武汉大学有权保留并向有关部门或机构送交本论文的复印件和电子版，允许本论文被查阅和借阅。本人授权武汉大学将本论文的全部或部分内容编入有关数据进行检索和传播，可以采用影印、缩印或扫描等复制手段保存和汇编本论文。
+  {\zihao{-4}
+  本人完全了解武汉大学有权保留并向有关部门或机构送交本论文（设计）的复印件和电子版，允许本论文（设计）被查阅和借阅。本人授权武汉大学将本论文的全部或部分内容编入有关数据进行检索和传播，可以采用影印、缩印或扫描等复制手段保存和汇编本论文（设计）。
   \vspace*{30pt}\newline
-  作者签名: \underline{\hspace{2.5cm}}
-  \hspace{0.6cm}指导教师签名: \underline{\hspace{2.5cm}}
-  \hspace{0.6cm}日期: \underline{\hspace{2.5cm}}\hfill\par}
+  \begin{flushright} % 整个表格右对齐
+    \begin{tabular}{ll} % 调整列宽以适应你的排版
+      &作者签名： \hspace{2cm}   指导教师签名：  \hspace{3cm} \hfill \\[2ex] % 填充空白 % 额外添加 2ex 的垂直空间
+      &日 \quad 期：  \hspace{1cm}年 \hspace{0.5cm} 月 \hspace{0.5cm} 日 
+    \end{tabular}
+  \end{flushright}
+  % 作者签名: \underline{\hspace{2.5cm}}
+  % \hspace{0.6cm}指导教师签名: \underline{\hspace{2.5cm}}
+  % \hspace{0.6cm}日期: \underline{\hspace{2.5cm}}\hfill\par
+  }
+}
+
+
+\newcommand{\setabstractpage}{
+  \pagenumbering{Roman}  % 使用大写罗马数字
+  \setcounter{page}{1}   % 页码从 I 开始
 }
 
 %%% ---- 摘要 ----- %%%
 % 中文摘要
 \newenvironment{cnabstract}[1]{
+  \setabstractpage
 	\def \cnkeyword {#1}
-	\clearpage
-  \thispagestyle{empty}
-	% \addcontentsline{toc}{chapter}{摘要}
+	% \clearpage
+  % \thispagestyle{empty}
+  \addcontentsline{toc}{chapter}{摘要}  % 添加到目录
   \begin{center} {\heiti \zihao{-2} 摘 \hspace{2em} 要} \end{center}
-  \baselineskip=23pt
-
-}{
+  % \baselineskip=23pt
+  \setlength{\baselineskip}{1.5\baselineskip} % 1.5 倍行距
+  \songti \zihao{-4} % 设置正文为宋体小四号
+  \quad\quad
+}{  % 结束正文
 	\vspace*{2em}
-	\par\noindent {\heiti\zihao{-4} 关键词：} \cnkeyword
+	\par\noindent {\songti\zihao{-4} \textbf{关键词：}} {\songti \zihao{-4} \cnkeyword}
 	\clearpage
 }
 
 % 英文摘要
 \newenvironment{enabstract}[1]{
+  % \setabstractpage
+  \addcontentsline{toc}{chapter}{ABSTRACT}  % 添加到目录
 	\def \enkeyword {#1}
   \clearpage
-  \thispagestyle{empty}  
+  % \thispagestyle{empty}  
   \begin{center} {\heiti \zihao{-2} \textbf{ABSTRACT}} \end{center}
-  \baselineskip=23pt
-
+  % \baselineskip=23pt
+  \setlength{\baselineskip}{1.5\baselineskip} % 1.5 倍行距
+  % \setmainfont{Times New Roman}  % 设置 Times New Roman 字体
+  \zihao{-4} % 设置正文为小四号
+  \quad\quad  % 段首空两格
 }{
 	\vspace*{2em}
-	\par\noindent {\bfseries\zihao{-4} Key words:} \enkeyword
+	\par\noindent {\bfseries\zihao{-4} Keywords:} {\zihao{-4}\enkeyword}
 	\clearpage
 }
 
 %%% ---- 目录 ----- %%%
 % 生成目录
 \newcommand{\contents}{
-  \hypersetup{pdfborder={0 0 0}}    % 去掉目录红框
+  \pagestyle{fancy}
+  \hypersetup{hidelinks} % 隐藏所有引用颜色
+  % \hypersetup{pdfborder={0 0 0}}    % 去掉目录红框
   \cleardoublepage
-  \pagenumbering{gobble}            % 去掉目录页码
+  % \pagenumbering{gobble}            % 去掉目录页码
   \tableofcontents
 
   \cleardoublepage
@@ -300,5 +361,5 @@
 
   \renewcommand{\baselinestretch}{1}\normalsize
   \baselineskip=23pt                % 正文行距为 23 磅
-  \hypersetup{pdfborder={0 0 1}}    % 恢复引用红框
+  % \hypersetup{pdfborder={0 0 1}}    % 恢复引用红框
 }
