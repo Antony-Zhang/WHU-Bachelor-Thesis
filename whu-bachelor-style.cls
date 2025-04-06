@@ -90,7 +90,29 @@
   }}
 \makeatother
 
-
+% 无编号章节的标题样式（如 \chapter*{致谢}）
+\makeatletter
+\renewcommand{\@makeschapterhead}[1]{
+  % \vspace*{0ex} % 调整这里的值来控制标题上方的空白
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \centering
+      \heiti \zihao{-2} #1\par\nobreak
+      \vskip 0.5ex
+    \else
+      \centering
+      \heiti \zihao{-2} #1\par\nobreak
+      \vskip 0.5ex
+    \fi
+  }}
+\makeatother
+% \renewcommand{\@makeschapterhead}[1]{
+%   \vspace*{-2ex}
+%   {\parindent \z@ \centering
+%     \heiti \zihao{-2} #1\par\nobreak
+%     \vskip 0.5ex
+%   }}
+% \makeatother
 
 % \songti 宋体 \heiti 黑体  \kaishu 楷体 \fangsong 仿宋
 

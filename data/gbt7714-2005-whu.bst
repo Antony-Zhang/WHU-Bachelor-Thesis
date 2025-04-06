@@ -609,7 +609,8 @@ INTEGERS { nameindex namecount }                  % static int nameindex, nameco
 STRINGS  { namelist nameformat }                  % static String namelist, nameformat;
 STRINGS  { firstname lastname jrname vonname}     % static String firstname, lastname, jrname, vonname;
                                                   %
-FUNCTION {format.names} {                         % String Entry::format_names(String names) {
+                                                  % // format English names
+FUNCTION {format.names.en} {                         % String Entry::format_names(String names) {
   'namelist :=                                    %   namelist = names;
   namelist num.names$ 'namecount :=               %   namecount = num_names(namelist);
   ""                                              %   String result = "";
@@ -619,14 +620,14 @@ FUNCTION {format.names} {                         % String Entry::format_names(S
     nameindex #1 > {                              %     if (nameindex > 1) {
       cap.comma *                                 %       result = result + cap_comma;
     } 'skip$ if$                                  %     }
-    namelist nameindex "{vv}" format.name$        %     String tmp = format_name(namelist, nameindex, "{vv}");
+    namelist nameindex "{vv}" format.name$        %     String tmp = format_name(namelist, nameindex, "{vv}"); 前缀, 如Johann von Neumann的von
    'vonname :=                                    %     vonname = tmp;
-    namelist nameindex "{jj}" format.name$        %     tmp = format_name(namelist, nameindex, "{jj}");
-    remove.dots 'jrname :=                        %     jrname = remove_dots(tmp);
-    namelist nameindex "{f}" format.name$         %     tmp = format_name(namelist, nameindex, "{f}");
+    namelist nameindex "{jj}" format.name$        %     tmp = format_name(namelist, nameindex, "{jj}"); 后缀,如Johon Smith Jr.的Jr.
+    remove.dots 'jrname :=                        %     jrname = remove_dots(tmp); 去除点号
+    namelist nameindex "{f}" format.name$         %     tmp = format_name(namelist, nameindex, "{f}"); 名
     remove.dots                                   %     tmp = remove_dots(tmp);
-    "u" change.case$ 'firstname :=                %     firstname = change_case(tmp, "u");
-    namelist nameindex "{ll}" format.name$        %     tmp = format_name(namelist, nameindex, "{ll}");
+    "u" change.case$ 'firstname :=                %     firstname = change_case(tmp, "u"); 转小写
+    namelist nameindex "{ll}" format.name$        %     tmp = format_name(namelist, nameindex, "{ll}"); 姓
     "u" change.case$ 'lastname :=                 %     lastname = change_case(tmp, "u");
     jrname empty$ not {                           %     if (! empty(jrname)) {
       jrname * " " *                              %       result = result + jrname + " "
@@ -650,16 +651,59 @@ FUNCTION {format.names} {                         % String Entry::format_names(S
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   % // format English names
-FUNCTION {format.names.en} {                      % String Entry::format_names_en(String names) {
-  format.names                                    %   format_names(names);
-}                                                 % }
+% FUNCTION {format.names.en} {                      % String Entry::format_names_en(String names) {
+%   format.names                                    %   format_names(names);
+% }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   % // format Chinese names
-FUNCTION {format.names.zh} {                      % String Entry::format_names_zh(String names) {
-  format.names                                    %   format_names(names);
-}                                                 % }
+% FUNCTION {format.names.zh} {                      % String Entry::format_names_zh(String names) {
+%   format.names                                    %   format_names(names);
+% }                                                 % }
                                                   %
+FUNCTION {format.names.zh} {                         % String Entry::format_names(String names) {
+  'namelist :=                                    %   namelist = names;
+  namelist num.names$ 'namecount :=               %   namecount = num_names(namelist);
+  ""                                              %   String result = "";
+  #0 'nameindex :=                                %   nameindex = 0;
+  {nameindex namecount < nameindex #3 < and} {    %   while ((nameindex < namecount) && (nameindex < 3)) {
+    nameindex #1 + 'nameindex :=                  %     nameindex = nameindex + 1;
+    nameindex #1 > {                              %     if (nameindex > 1) {
+      cap.comma *                                 %       result = result + cap_comma;
+    } 'skip$ if$                                  %     }
+  namelist nameindex "{ll}" format.name$  % 提取姓氏
+  'lastname :=
+  namelist nameindex "{ff}" format.name$  % 提取名字
+  'firstname :=
+  lastname empty$ not {
+    lastname *
+    firstname empty$ not { " " * firstname * } 'skip$ if$
+  } {
+    firstname empty$ not { firstname * } 'skip$ if$
+  } if$
+  trim.end
+  } while$
+  nameindex namecount < {
+  cap.et.al.zh *
+  } 'skip$ if$
+}
+
+%     namelist nameindex "{ll}" format.name$        %     tmp = format_name(namelist, nameindex, "{ll}");
+%     'lastname :=                                  %     lastname = tmp;
+%     namelist nameindex "{f}" format.name$         %     tmp = format_name(namelist, nameindex, "{f}");
+%     'firstname :=                                 %     firstname = tmp;
+%     lastname empty$ not {                         %     if (! empty(lastname)) {
+%       lastname *                                  %       result = result + lastname + " "
+%     } 'skip$ if$                                  %     }
+%     firstname empty$ not {                        %     if (! empty(firstname)) {
+%       firstname *                                 %       result = result + firstname + " "
+%     } 'skip$ if$                                  %     }
+%     trim.end                                      %     result = trim_end(result);
+%   } while$                                        %   }
+%   nameindex namecount < {                         %   if (nameindex < namecount) {
+%     cap.et.al.zh *                                   %     result = result + cap_et_al();
+%   } 'skip$ if$                                    %   }
+% }       
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.author} {                        % String Emtry::format_author(String authors) {
