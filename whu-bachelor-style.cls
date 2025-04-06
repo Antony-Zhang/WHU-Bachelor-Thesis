@@ -30,13 +30,15 @@
 \renewcommand{\headrulewidth}{0.4pt}  % 页眉线宽
 \renewcommand{\footrulewidth}{0pt}    % 页脚线宽
 
+% \makeatletter
+% \renewcommand{\chapterheadstartvskip}{\vspace*{0.5ex}} % 调整这里的值
+% \makeatother
 
 % % 默认页面页眉页脚样式 (空白)
 \pagestyle{empty} % 启动页眉页脚样式
 % 带页眉的样式
 \fancypagestyle{plain}{
     \fancyhf{}
-    % \fancyhead[C]{\textcolor{headercolor}{武汉大学本科毕业论文（设计）}}
     \fancyhead[C]{武汉大学本科毕业论文（设计）}
     \fancyfoot[C]{\zihao{5}\thepage}  % 页码位于页脚居中
 }
@@ -48,11 +50,47 @@
 \RequirePackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 设置各个标题样式
-\ctexset{chapter={format={\centering \heiti \zihao{-2}}, number={   % 各章标题 黑体小2号 // 修改：标题和数字字号一致 
-    \arabic{chapter}},name={,},afterskip={0.5ex},beforeskip={0.8ex}}}
+\ctexset{chapter={
+  format={\centering \heiti \zihao{-2}}, 
+  number={   % 各章标题 黑体小2号 // 修改：标题和数字字号一致 
+    \arabic{chapter}},
+  name={,},
+  afterskip={0.5ex},
+  beforeskip={0.5ex}} % 标题之前的垂直间距
+}
 \ctexset{section={format={\raggedright \heiti \zihao{4}}}}          % 一级标题 黑体 4号
 \ctexset{subsection={format={\raggedright \heiti \zihao{-4}}}}      % 二级标题 黑体小4号
 \ctexset{subsubsection={format={\raggedright \heiti \zihao{-4}}}}   % 三级标题 黑体小4号
+
+% 调整Chapter标题的上下文间距
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{
+  % \vspace*{0ex} % 调整这里的值来控制标题上方的空白
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \vspace*{-2ex} % 调整这里的值来控制目录标题上方的空白
+        % 将序号和标题放在同一行
+        \centering
+        \heiti \zihao{-2} 
+        \thechapter \hspace{1ex} % 序号和标题之间的间距
+        #1
+        \par\nobreak
+        \vskip 0.5ex  % 标题下方的间距
+      \else
+        \centering
+        \heiti \zihao{-2} #1\par\nobreak
+        \vskip 0.5ex
+      \fi
+    \else
+      \centering
+      \heiti \zihao{-2} #1\par\nobreak
+      \vskip 0.5ex
+    \fi
+  }}
+\makeatother
+
+
 
 % \songti 宋体 \heiti 黑体  \kaishu 楷体 \fangsong 仿宋
 
@@ -352,6 +390,10 @@
   \hypersetup{hidelinks} % 隐藏所有引用颜色
   % \hypersetup{pdfborder={0 0 0}}    % 去掉目录红框
   \cleardoublepage
+
+  % 调整目录标题上方的空白
+  \vspace*{-2ex} % 调整这里的值来控制目录标题上方的空白
+
   % \pagenumbering{gobble}            % 去掉目录页码
   \tableofcontents
 
