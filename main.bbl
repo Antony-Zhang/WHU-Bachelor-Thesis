@@ -25,96 +25,105 @@
 \providecommand{\biburl}[1]{\newline\url{#1}}
 
 \bibitem{oliveira2012poetryme}
-\bibauthor{OLIVEIRA H~G}\@. \bibtitle{PoeTryMe: a versatile platform for poetry generation}\bibmark{[J]}\@. \bibjournal{Computational Creativity, Concept Invention, and General Intelligence}\@, \bibyear{2012}\@, \bibvolume{1}\thinspace{}\textnormal{: }\bibpages{21}\@.
+\bibauthor{Oliveira H~G}\@. \bibtitle{PoeTryMe: a versatile platform for poetry generation}\bibmark{[J]}\@. \bibjournal{Computational Creativity, Concept Invention, and General Intelligence}\@, \bibyear{2012}\@, \bibvolume{1}\thinspace{}\textnormal{: }\bibpages{21}\@.
 
 \bibitem{yanPoetAutomaticChinese2013}
-\bibauthor{YAN R\@, JIANG H\@, LAPATA M, et~al}\@. \bibtitle{I, {{Poet}}: {{Automatic Chinese Poetry Composition}} through a {{Generative Summarization Framework}} under {{Constrained Optimization}}}\bibmark{[J]}\@. \bibjournal{IJCAI 2013, Proceedings of the 23rd International Joint Conference on Artificial Intelligence}\@, \bibyear{2013}\thinspace{}\textnormal{: }\bibpages{2197\thinspace{}\textnormal{--}\thinspace{}2203}\@.
+\bibauthor{Yan R\@, Jiang H\@, Lapata M, et~al}\@. \bibtitle{I, Poet: Automatic {{Chinese}} Poetry Composition through a Generative Summarization Framework under Constrained Optimization}\bibmark{[A]}\@. \bibbooktitle{{{IJCAI}} '13\thinspace{}\textnormal{: }Proceedings of the {{Twenty-Third}} International Joint Conference on {{Artificial Intelligence}}}[C]\@, \bibaddress{Beijing, China}\thinspace{}\textnormal{: }\bibpublisher{AAAI Press}\@, \bibyear{2013}\thinspace{}\textnormal{: }\bibpages{2197\thinspace{}\textnormal{--}\thinspace{}2203}\@.
 
 \bibitem{heGeneratingChineseClassical2012}
-\bibauthor{HE J\@, ZHOU M\@, JIANG L}\@. \bibtitle{Generating {{Chinese Classical Poems}} with {{Statistical Machine Translation Models}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2012}\@, \bibvolume{26}\bibnumber{(1)}\thinspace{}\textnormal{: }\bibpages{1650\thinspace{}\textnormal{--}\thinspace{}1656}\@.
+\bibauthor{He J\@, Zhou M\@, Jiang L}\@. \bibtitle{Generating {{Chinese Classical Poems}} with {{Statistical Machine Translation Models}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2012}\@, \bibvolume{26}\bibnumber{(1)}\thinspace{}\textnormal{: }\bibpages{1650\thinspace{}\textnormal{--}\thinspace{}1656}\@.
 
 \bibitem{yiGeneratingChineseClassical2017}
-\bibauthor{YI X\@, LI R\@, SUN M}\@. \bibtitle{Generating {{Chinese Classical Poems}} with {{RNN Encoder-Decoder}}}\bibmark{[A]}\@. \bibeditor{SUN M\@, WANG X\@, CHANG B, et~al}\@. \bibbooktitle{Chinese {{Computational Linguistics}} and {{Natural Language Processing Based}} on {{Naturally Annotated Big Data}}}[C]\@, \bibaddress{Cham}\thinspace{}\textnormal{: }\bibpublisher{Springer International Publishing}\@, \bibyear{2017}\thinspace{}\textnormal{: }\bibpages{211\thinspace{}\textnormal{--}\thinspace{}223}\@.
+\bibauthor{Yi X\@, Li R\@, Sun M}\@. \bibtitle{Generating {{Chinese Classical Poems}} with {{RNN Encoder-Decoder}}}\bibmark{[A]}\@. \bibeditor{Sun M\@, Wang X\@, Chang B, et~al}\@. \bibbooktitle{Chinese {{Computational Linguistics}} and {{Natural Language Processing Based}} on {{Naturally Annotated Big Data}}}[C]\@, \bibaddress{Cham}\thinspace{}\textnormal{: }\bibpublisher{Springer International Publishing}\@, \bibyear{2017}\thinspace{}\textnormal{: }\bibpages{211\thinspace{}\textnormal{--}\thinspace{}223}\@.
 
 \bibitem{zhangChinesePoetryGeneration2014}
-\bibauthor{ZHANG X\@, LAPATA M}\@. \bibtitle{Chinese {{Poetry Generation}} with {{Recurrent Neural Networks}}}\bibmark{[A]}\@. \bibeditor{MOSCHITTI A\@, PANG B\@, DAELEMANS W}\@. \bibbooktitle{Proceedings of the 2014 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}} ({{EMNLP}})}[C]\@, \bibaddress{Doha, Qatar}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2014}\thinspace{}\textnormal{: }\bibpages{670\thinspace{}\textnormal{--}\thinspace{}680}\@.
+\bibauthor{Zhang X\@, Lapata M}\@. \bibtitle{Chinese {{Poetry Generation}} with {{Recurrent Neural Networks}}}\bibmark{[A]}\@. \bibeditor{Moschitti A\@, Pang B\@, Daelemans W}\@. \bibbooktitle{Proceedings of the 2014 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}} ({{EMNLP}})}[C]\@, \bibaddress{Doha, Qatar}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2014}\thinspace{}\textnormal{: }\bibpages{670\thinspace{}\textnormal{--}\thinspace{}680}\@.
 
 \bibitem{liRigidFormatsControlled2020}
-\bibauthor{LI P\@, ZHANG H\@, LIU X, et~al}\@. \bibtitle{Rigid {{Formats Controlled Text Generation}}}\bibmark{[A]}\@. \bibeditor{JURAFSKY D\@, CHAI J\@, SCHLUTER N, et~al}\@. \bibbooktitle{Proceedings of the 58th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}}[C]\@, \bibaddress{Online}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{742\thinspace{}\textnormal{--}\thinspace{}751}\@.
+\bibauthor{Li P\@, Zhang H\@, Liu X, et~al}\@. \bibtitle{Rigid {{Formats Controlled Text Generation}}}\bibmark{[A]}\@. \bibeditor{Jurafsky D\@, Chai J\@, Schluter N, et~al}\@. \bibbooktitle{Proceedings of the 58th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}}[C]\@, \bibaddress{Online}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{742\thinspace{}\textnormal{--}\thinspace{}751}\@.
 
 \bibitem{huPoetryDiffusionJointSemantic2024}
-\bibauthor{HU Z\@, LIU C\@, FENG Y, et~al}\@. \bibtitle{{{PoetryDiffusion}}: {{Towards Joint Semantic}} and {{Metrical Manipulation}} in {{Poetry Generation}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2024}\@, \bibvolume{38}\bibnumber{(16)}\thinspace{}\textnormal{: }\bibpages{18279\thinspace{}\textnormal{--}\thinspace{}18288}\@.
+\bibauthor{Hu Z\@, Liu C\@, Feng Y, et~al}\@. \bibtitle{{{PoetryDiffusion}}: {{Towards Joint Semantic}} and {{Metrical Manipulation}} in {{Poetry Generation}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2024}\@, \bibvolume{38}\bibnumber{(16)}\thinspace{}\textnormal{: }\bibpages{18279\thinspace{}\textnormal{--}\thinspace{}18288}\@.
 
 \bibitem{zhangERNIEEnhancedLanguage2019}
-\bibauthor{ZHANG Z\@, HAN X\@, LIU Z, et~al}\@. \bibtitle{{{ERNIE}}: {{Enhanced Language Representation}} with {{Informative Entities}}}\bibmark{[J]}\@, \bibyear{2019}\bibnumber{(arXiv:1905.07129)}\@.
+\bibauthor{Zhang Z\@, Han X\@, Liu Z, et~al}\@. \bibtitle{{{ERNIE}}: {{Enhanced Language Representation}} with {{Informative Entities}}}\bibmark{[J]}\@, \bibyear{2019}\bibnumber{(arXiv:1905.07129)}\@.
 
 \bibitem{deepseek-aiDeepSeekR1IncentivizingReasoning2025}
 \bibauthor{{DeepSeek-AI}}\@. \bibtitle{{{DeepSeek-R1}}: {{Incentivizing Reasoning Capability}} in {{LLMs}} via {{Reinforcement Learning}}}\bibmark{[J]}\@, \bibyear{2025}\bibnumber{(arXiv:2501.12948)}\@.
 
 \bibitem{luDeepSeekVLRealWorldVisionLanguage2024}
-\bibauthor{LU H\@, LIU W\@, ZHANG B, et~al}\@. \bibtitle{{{DeepSeek-VL}}: {{Towards Real-World Vision-Language Understanding}}}\bibmark{[J]}\@, \bibyear{2024}\bibnumber{(arXiv:2403.05525)}\@.
+\bibauthor{Lu H\@, Liu W\@, Zhang B, et~al}\@. \bibtitle{{{DeepSeek-VL}}: {{Towards Real-World Vision-Language Understanding}}}\bibmark{[J]}\@, \bibyear{2024}\bibnumber{(arXiv:2403.05525)}\@.
 
 \bibitem{yuCharPoetChineseClassical2024}
-\bibauthor{YU C\@, ZANG L\@, WANG J, et~al}\@. \bibtitle{{{CharPoet}}: {{A Chinese Classical Poetry Generation System Based}} on {{Token-free LLM}}}\bibmark{[A]}\@. \bibeditor{CAO Y\@, FENG Y\@, XIONG D}\@. \bibbooktitle{Proceedings of the 62nd {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}} ({{Volume}} 3: {{System Demonstrations}})}[C]\@, \bibaddress{Bangkok, Thailand}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2024}\thinspace{}\textnormal{: }\bibpages{315\thinspace{}\textnormal{--}\thinspace{}325}\@.
+\bibauthor{Yu C\@, Zang L\@, Wang J, et~al}\@. \bibtitle{{{CharPoet}}: {{A Chinese Classical Poetry Generation System Based}} on {{Token-free LLM}}}\bibmark{[A]}\@. \bibeditor{Cao Y\@, Feng Y\@, Xiong D}\@. \bibbooktitle{Proceedings of the 62nd {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}} ({{Volume}} 3: {{System Demonstrations}})}[C]\@, \bibaddress{Bangkok, Thailand}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2024}\thinspace{}\textnormal{: }\bibpages{315\thinspace{}\textnormal{--}\thinspace{}325}\@.
 
 \bibitem{liuImages2PoemGeneratingChinese2018}
-\bibauthor{LIU L\@, WAN X\@, GUO Z}\@. \bibtitle{{{Images2Poem}}: {{Generating Chinese Poetry}} from {{Image Streams}}}\bibmark{[A]}\@. \bibbooktitle{{{MM}} '18\thinspace{}\textnormal{: }Proceedings of the 26th {{ACM}} International Conference on {{Multimedia}}}[C]\@, \bibaddress{New York, NY, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computing Machinery}\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{1967\thinspace{}\textnormal{--}\thinspace{}1975}\@.
+\bibauthor{Liu L\@, Wan X\@, Guo Z}\@. \bibtitle{{{Images2Poem}}: {{Generating Chinese Poetry}} from {{Image Streams}}}\bibmark{[A]}\@. \bibbooktitle{{{MM}} '18\thinspace{}\textnormal{: }Proceedings of the 26th {{ACM}} International Conference on {{Multimedia}}}[C]\@, \bibaddress{New York, NY, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computing Machinery}\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{1967\thinspace{}\textnormal{--}\thinspace{}1975}\@.
 
 \bibitem{xuHowImagesInspire2018}
-\bibauthor{XU L\@, JIANG L\@, QIN C, et~al}\@. \bibtitle{How {{Images Inspire Poems}}: {{Generating Classical Chinese Poetry}} from {{Images}} with {{Memory Networks}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2018}\@, \bibvolume{32}\bibnumber{(1)}\@.
+\bibauthor{Xu L\@, Jiang L\@, Qin C, et~al}\@. \bibtitle{How {{Images Inspire Poems}}: {{Generating Classical Chinese Poetry}} from {{Images}} with {{Memory Networks}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2018}\@, \bibvolume{32}\bibnumber{(1)}\@.
 
 \bibitem{doshi-velezRigorousScienceInterpretable2017}
-\bibauthor{{Doshi-Velez} F\@, KIM B}\@. \bibtitle{Towards {{A Rigorous Science}} of {{Interpretable Machine Learning}}}\bibmark{[J]}\@, \bibyear{2017}\bibnumber{(arXiv:1702.08608)}\@.
+\bibauthor{{Doshi-Velez} F\@, Kim B}\@. \bibtitle{Towards {{A Rigorous Science}} of {{Interpretable Machine Learning}}}\bibmark{[J]}\@, \bibyear{2017}\bibnumber{(arXiv:1702.08608)}\@.
 
 \bibitem{wangChinesePoetryGeneration2016}
-\bibauthor{WANG Z\@, HE W\@, WU H, et~al}\@. \bibtitle{Chinese {{Poetry Generation}} with {{Planning}} Based {{Neural Network}}}\bibmark{[A]}\@. \bibeditor{MATSUMOTO Y\@, PRASAD R}\@. \bibbooktitle{Proceedings of {{COLING}} 2016, the 26th {{International Conference}} on {{Computational Linguistics}}: {{Technical Papers}}}[C]\@, \bibaddress{Osaka, Japan}\thinspace{}\textnormal{: }\bibpublisher{The COLING 2016 Organizing Committee}\@, \bibyear{2016}\thinspace{}\textnormal{: }\bibpages{1051\thinspace{}\textnormal{--}\thinspace{}1060}\@.
+\bibauthor{Wang Z\@, He W\@, Wu H, et~al}\@. \bibtitle{Chinese {{Poetry Generation}} with {{Planning}} Based {{Neural Network}}}\bibmark{[A]}\@. \bibeditor{Matsumoto Y\@, Prasad R}\@. \bibbooktitle{Proceedings of {{COLING}} 2016, the 26th {{International Conference}} on {{Computational Linguistics}}: {{Technical Papers}}}[C]\@, \bibaddress{Osaka, Japan}\thinspace{}\textnormal{: }\bibpublisher{The COLING 2016 Organizing Committee}\@, \bibyear{2016}\thinspace{}\textnormal{: }\bibpages{1051\thinspace{}\textnormal{--}\thinspace{}1060}\@.
+
+\bibitem{WangJiYuSeq2SeqMoXingDeZiDingYiGuShiShengCheng2020}
+\bibauthor{王 乐为\@, 余 鹰\@, 张 应龙}\@. \bibtitle{{{基于Seq2Seq模型的自定义古诗生成}}}\bibmark{[J]}\@. \bibjournal{计算机科学与探索}\@, \bibyear{2020}\@, \bibvolume{14}\bibnumber{(6)}\thinspace{}\textnormal{: }\bibpages{1028\thinspace{}\textnormal{--}\thinspace{}1035}\@.
 
 \bibitem{wuGenerateClassicalChinese2021}
-\bibauthor{WU C\@, WANG J\@, YUAN S, et~al}\@. \bibtitle{Generate Classical {{Chinese}} Poems with Theme-Style from Images}\bibmark{[J]}\@. \bibjournal{Pattern Recognition Letters}\@, \bibyear{2021}\@, \bibvolume{149}\thinspace{}\textnormal{: }\bibpages{75\thinspace{}\textnormal{--}\thinspace{}82}\@.
+\bibauthor{Wu C\@, Wang J\@, Yuan S, et~al}\@. \bibtitle{Generate Classical {{Chinese}} Poems with Theme-Style from Images}\bibmark{[J]}\@. \bibjournal{Pattern Recognition Letters}\@, \bibyear{2021}\@, \bibvolume{149}\thinspace{}\textnormal{: }\bibpages{75\thinspace{}\textnormal{--}\thinspace{}82}\@.
 
 \bibitem{shaoSentimentStyleControllable2021}
-\bibauthor{SHAO Y\@, SHAO T\@, WANG M, et~al}\@. \bibtitle{A {{Sentiment}} and {{Style Controllable Approach}} for {{Chinese Poetry Generation}}}\bibmark{[A]}\@. \bibbooktitle{{{CIKM}} '21\thinspace{}\textnormal{: }Proceedings of the 30th {{ACM International Conference}} on {{Information}} \& {{Knowledge Management}}}[C]\@, \bibaddress{New York, NY, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computing Machinery}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{4784\thinspace{}\textnormal{--}\thinspace{}4788}\@.
+\bibauthor{Shao Y\@, Shao T\@, Wang M, et~al}\@. \bibtitle{A {{Sentiment}} and {{Style Controllable Approach}} for {{Chinese Poetry Generation}}}\bibmark{[A]}\@. \bibbooktitle{{{CIKM}} '21\thinspace{}\textnormal{: }Proceedings of the 30th {{ACM International Conference}} on {{Information}} \& {{Knowledge Management}}}[C]\@, \bibaddress{New York, NY, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computing Machinery}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{4784\thinspace{}\textnormal{--}\thinspace{}4788}\@.
+
+\bibitem{LiFengGeHeQingGanKongZhiDeZhongGuoGuShiShengCheng2022}
+\bibauthor{李晓辰}\@. \bibtitle{风格和情感控制的中国古诗生成}\bibmark{[D]}\@. \bibaddress{哈尔滨}\thinspace{}\textnormal{: }\bibschool{哈尔滨工业大学}\@, \bibyear{2022}\@.
 
 \bibitem{renGeneratingChinesePoetry2023}
-\bibauthor{REN X\@, CHAI X\@, MAO M}\@. \bibtitle{Generating {{Chinese Poetry}} from {{Images Based}} on {{Deep Learning}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the 2023 3rd International Conference on Big Data, Artificial Intelligence and Risk Management}\@, \bibyear{2023}\thinspace{}\textnormal{: }\bibpages{134\thinspace{}\textnormal{--}\thinspace{}138}\@.
+\bibauthor{Ren X\@, Chai X\@, Mao M}\@. \bibtitle{Generating {{Chinese Poetry}} from {{Images Based}} on {{Deep Learning}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the 2023 3rd International Conference on Big Data, Artificial Intelligence and Risk Management}\@, \bibyear{2023}\thinspace{}\textnormal{: }\bibpages{134\thinspace{}\textnormal{--}\thinspace{}138}\@.
+
+\bibitem{CengShengChengShiYuYanMoXingZaiGuShiShengChengZhongDeYouHua2024}
+\bibauthor{曾 柯}\@. \bibtitle{生成式语言模型在古诗生成中的优化}\bibmark{[D]}\@. \bibaddress{上海}\thinspace{}\textnormal{: }\bibschool{华东师范大学}\@, \bibyear{2024}\@.
 
 \bibitem{liuMultiModalChinesePoetry2018}
-\bibauthor{LIU D\@, GUO Q\@, LI W, et~al}\@. \bibtitle{A {{Multi-Modal Chinese Poetry Generation Model}}}\bibmark{[A]}\@. \bibbooktitle{2018 {{International Joint Conference}} on {{Neural Networks}} ({{IJCNN}})}[C]\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}8}\@.
+\bibauthor{Liu D\@, Guo Q\@, Li W, et~al}\@. \bibtitle{A {{Multi-Modal Chinese Poetry Generation Model}}}\bibmark{[A]}\@. \bibbooktitle{2018 {{International Joint Conference}} on {{Neural Networks}} ({{IJCNN}})}[C]\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}8}\@.
 
 \bibitem{liuDeepPoetryChinese2020}
-\bibauthor{LIU Y\@, LIU D\@, LV J}\@. \bibtitle{Deep {{Poetry}}: {{A Chinese Classical Poetry Generation System}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2020}\@, \bibvolume{34}\bibnumber{(09)}\thinspace{}\textnormal{: }\bibpages{13626\thinspace{}\textnormal{--}\thinspace{}13627}\@.
+\bibauthor{Liu Y\@, Liu D\@, Lv J}\@. \bibtitle{Deep {{Poetry}}: {{A Chinese Classical Poetry Generation System}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2020}\@, \bibvolume{34}\bibnumber{(09)}\thinspace{}\textnormal{: }\bibpages{13626\thinspace{}\textnormal{--}\thinspace{}13627}\@.
 
 \bibitem{papineniBLEUMethodAutomatic2002}
-\bibauthor{PAPINENI K\@, ROUKOS S\@, WARD T, et~al}\@. \bibtitle{{{BLEU}}: A {{Method}} for {{Automatic Evaluation}} of {{Machine Translation}}}\bibmark{[A]}\@. \bibeditor{ISABELLE P\@, CHARNIAK E\@, LIN D}\@. \bibbooktitle{Proceedings of the 40th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}}[C]\@, \bibaddress{Philadelphia, Pennsylvania, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2002}\thinspace{}\textnormal{: }\bibpages{311\thinspace{}\textnormal{--}\thinspace{}318}\@.
+\bibauthor{Papineni K\@, Roukos S\@, Ward T, et~al}\@. \bibtitle{{{BLEU}}: A {{Method}} for {{Automatic Evaluation}} of {{Machine Translation}}}\bibmark{[A]}\@. \bibeditor{Isabelle P\@, Charniak E\@, Lin D}\@. \bibbooktitle{Proceedings of the 40th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}}[C]\@, \bibaddress{Philadelphia, Pennsylvania, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2002}\thinspace{}\textnormal{: }\bibpages{311\thinspace{}\textnormal{--}\thinspace{}318}\@.
 
 \bibitem{linROUGEPackageAutomatic2004}
-\bibauthor{LIN C-Y}\@. \bibtitle{{{ROUGE}}: {{A Package}} for {{Automatic Evaluation}} of {{Summaries}}}\bibmark{[A]}\@. \bibbooktitle{Text {{Summarization Branches Out}}}[C]\@, \bibaddress{Barcelona, Spain}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2004}\thinspace{}\textnormal{: }\bibpages{74\thinspace{}\textnormal{--}\thinspace{}81}\@.
+\bibauthor{Lin C-Y}\@. \bibtitle{{{ROUGE}}: {{A Package}} for {{Automatic Evaluation}} of {{Summaries}}}\bibmark{[A]}\@. \bibbooktitle{Text {{Summarization Branches Out}}}[C]\@, \bibaddress{Barcelona, Spain}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2004}\thinspace{}\textnormal{: }\bibpages{74\thinspace{}\textnormal{--}\thinspace{}81}\@.
 
 \bibitem{liDiversityPromotingObjectiveFunction2016}
-\bibauthor{LI J\@, GALLEY M\@, BROCKETT C, et~al}\@. \bibtitle{A {{Diversity-Promoting Objective Function}} for {{Neural Conversation Models}}}\bibmark{[A]}\@. \bibeditor{KNIGHT K\@, NENKOVA A\@, RAMBOW O}\@. \bibbooktitle{Proceedings of the 2016 {{Conference}} of the {{North American Chapter}} of the {{Association}} for {{Computational Linguistics}}: {{Human Language Technologies}}}[C]\@, \bibaddress{San Diego, California}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2016}\thinspace{}\textnormal{: }\bibpages{110\thinspace{}\textnormal{--}\thinspace{}119}\@.
+\bibauthor{Li J\@, Galley M\@, Brockett C, et~al}\@. \bibtitle{A {{Diversity-Promoting Objective Function}} for {{Neural Conversation Models}}}\bibmark{[A]}\@. \bibeditor{Knight K\@, Nenkova A\@, Rambow O}\@. \bibbooktitle{Proceedings of the 2016 {{Conference}} of the {{North American Chapter}} of the {{Association}} for {{Computational Linguistics}}: {{Human Language Technologies}}}[C]\@, \bibaddress{San Diego, California}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2016}\thinspace{}\textnormal{: }\bibpages{110\thinspace{}\textnormal{--}\thinspace{}119}\@.
 
 \bibitem{dengIterativePolishingFramework2020}
-\bibauthor{DENG L\@, WANG J\@, LIANG H, et~al}\@. \bibtitle{An {{Iterative Polishing Framework Based}} on {{Quality Aware Masked Language Model}} for {{Chinese Poetry Generation}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2020}\@, \bibvolume{34}\bibnumber{(05)}\thinspace{}\textnormal{: }\bibpages{7643\thinspace{}\textnormal{--}\thinspace{}7650}\@.
+\bibauthor{Deng L\@, Wang J\@, Liang H, et~al}\@. \bibtitle{An {{Iterative Polishing Framework Based}} on {{Quality Aware Masked Language Model}} for {{Chinese Poetry Generation}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2020}\@, \bibvolume{34}\bibnumber{(05)}\thinspace{}\textnormal{: }\bibpages{7643\thinspace{}\textnormal{--}\thinspace{}7650}\@.
 
 \bibitem{maYuShengHumaninLoop2023}
-\bibauthor{MA J\@, ZHAN R\@, WONG D~F}\@. \bibtitle{Yu {{Sheng}}: {{Human-in-Loop Classical Chinese Poetry Generation System}}}\bibmark{[A]}\@. \bibeditor{CROCE D\@, SOLDAINI L}\@. \bibbooktitle{Proceedings of the 17th {{Conference}} of the {{European Chapter}} of the {{Association}} for {{Computational Linguistics}}: {{System Demonstrations}}}[C]\@, \bibaddress{Dubrovnik, Croatia}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2023}\thinspace{}\textnormal{: }\bibpages{57\thinspace{}\textnormal{--}\thinspace{}66}\@.
+\bibauthor{Ma J\@, Zhan R\@, Wong D~F}\@. \bibtitle{Yu {{Sheng}}: {{Human-in-Loop Classical Chinese Poetry Generation System}}}\bibmark{[A]}\@. \bibeditor{Croce D\@, Soldaini L}\@. \bibbooktitle{Proceedings of the 17th {{Conference}} of the {{European Chapter}} of the {{Association}} for {{Computational Linguistics}}: {{System Demonstrations}}}[C]\@, \bibaddress{Dubrovnik, Croatia}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2023}\thinspace{}\textnormal{: }\bibpages{57\thinspace{}\textnormal{--}\thinspace{}66}\@.
 
 \bibitem{chenPolishingModelMachineGenerated2024}
-\bibauthor{CHEN Z\@, CAO Y}\@. \bibtitle{A {{Polishing Model}} for {{Machine-Generated Ancient Chinese Poetry}}}\bibmark{[J]}\@. \bibjournal{Neural Processing Letters}\@, \bibyear{2024}\@, \bibvolume{56}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{77}\@.
+\bibauthor{Chen Z\@, Cao Y}\@. \bibtitle{A {{Polishing Model}} for {{Machine-Generated Ancient Chinese Poetry}}}\bibmark{[J]}\@. \bibjournal{Neural Processing Letters}\@, \bibyear{2024}\@, \bibvolume{56}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{77}\@.
 
 \bibitem{radfordLearningTransferableVisual2021}
-\bibauthor{RADFORD A\@, KIM J~W\@, HALLACY C, et~al}\@. \bibtitle{Learning {{Transferable Visual Models From Natural Language Supervision}}}\bibmark{[A]}\@. \bibbooktitle{Proceedings of the 38th {{International Conference}} on {{Machine Learning}}}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{PMLR}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{8748\thinspace{}\textnormal{--}\thinspace{}8763}\@.
+\bibauthor{Radford A\@, Kim J~W\@, Hallacy C, et~al}\@. \bibtitle{Learning {{Transferable Visual Models From Natural Language Supervision}}}\bibmark{[A]}\@. \bibbooktitle{Proceedings of the 38th {{International Conference}} on {{Machine Learning}}}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{PMLR}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{8748\thinspace{}\textnormal{--}\thinspace{}8763}\@.
 
 \bibitem{zhuMiniGPT4EnhancingVisionLanguage2023}
-\bibauthor{ZHU D\@, CHEN J\@, SHEN X, et~al}\@. \bibtitle{{{MiniGPT-4}}: {{Enhancing Vision-Language Understanding}} with {{Advanced Large Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2304.10592)}\@.
+\bibauthor{Zhu D\@, Chen J\@, Shen X, et~al}\@. \bibtitle{{{MiniGPT-4}}: {{Enhancing Vision-Language Understanding}} with {{Advanced Large Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2304.10592)}\@.
 
 \bibitem{brownLanguageModelsAre2020}
-\bibauthor{BROWN T\@, MANN B\@, RYDER N, et~al}\@. \bibtitle{Language {{Models}} Are {{Few-Shot Learners}}}\bibmark{[A]}\@. \bibbooktitle{Advances in {{Neural Information Processing Systems}}\thinspace{}\textnormal{: }Vol~33}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Curran Associates, Inc.}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{1877\thinspace{}\textnormal{--}\thinspace{}1901}\@.
+\bibauthor{Brown T\@, Mann B\@, Ryder N, et~al}\@. \bibtitle{Language {{Models}} Are {{Few-Shot Learners}}}\bibmark{[A]}\@. \bibbooktitle{Advances in {{Neural Information Processing Systems}}\thinspace{}\textnormal{: }Vol~33}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Curran Associates, Inc.}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{1877\thinspace{}\textnormal{--}\thinspace{}1901}\@.
 
 \bibitem{weiChainofThoughtPromptingElicits2022}
-\bibauthor{WEI J\@, WANG X\@, SCHUURMANS D, et~al}\@. \bibtitle{Chain-of-{{Thought Prompting Elicits Reasoning}} in {{Large Language Models}}}\bibmark{[J]}\@. \bibjournal{Advances in Neural Information Processing Systems}\@, \bibyear{2022}\@, \bibvolume{35}\thinspace{}\textnormal{: }\bibpages{24824\thinspace{}\textnormal{--}\thinspace{}24837}\@.
+\bibauthor{Wei J\@, Wang X\@, Schuurmans D, et~al}\@. \bibtitle{Chain-of-{{Thought Prompting Elicits Reasoning}} in {{Large Language Models}}}\bibmark{[J]}\@. \bibjournal{Advances in Neural Information Processing Systems}\@, \bibyear{2022}\@, \bibvolume{35}\thinspace{}\textnormal{: }\bibpages{24824\thinspace{}\textnormal{--}\thinspace{}24837}\@.
 
 \bibitem{wangSelfConsistencyImprovesChain2023a}
-\bibauthor{WANG X\@, WEI J\@, SCHUURMANS D, et~al}\@. \bibtitle{Self-{{Consistency Improves Chain}} of {{Thought Reasoning}} in {{Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2203.11171)}\@.
+\bibauthor{Wang X\@, Wei J\@, Schuurmans D, et~al}\@. \bibtitle{Self-{{Consistency Improves Chain}} of {{Thought Reasoning}} in {{Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2203.11171)}\@.
 
 \end{thebibliography}
