@@ -46,7 +46,7 @@
 
 
 %%% ---- 定义标题和段落样式 ----- %%%
-% 定义1.5倍行距
+% 定义1.5倍行间距
 \RequirePackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 设置各个标题样式
@@ -117,8 +117,9 @@
 % \songti 宋体 \heiti 黑体  \kaishu 楷体 \fangsong 仿宋
 
 % 目录样式设置
+% 最多展示章节条三级标题；章节序号为Times New Roman小四号，章的标题为宋体加粗小四号，其他内容为宋体小四号；每项后需标明页码
 \RequirePackage{tocloft}
-\setcounter{tocdepth}{2}        % 目录层级数
+\setcounter{tocdepth}{3}        % 目录层级数
 \setcounter{secnumdepth}{3}     % 标题层级数
 
 \renewcommand{\cfttoctitlefont}{\hfill\heiti\zihao{-2}} % 目录标题 黑体小 2 号
@@ -131,21 +132,21 @@
 \renewcommand{\cftdotsep}{1}  % 点间距
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 
-\renewcommand\cftchapfont{\heiti\zihao{4}} % 目录章标题 黑体 4 号
+\renewcommand\cftchapfont{\bf\songti\zihao{-4}} % 目录章标题 宋体加粗小四号
 \renewcommand\cftsecfont{\songti\zihao{-4}}
 \renewcommand\cftsubsecfont{\songti\zihao{-4}}
-\renewcommand\cftsubsubsecfont{\songti\zihao{-4}}
-\renewcommand\cftchappagefont{\heiti\zihao{5}} % 目录页码字体
-\renewcommand\cftsecpagefont{\songti\zihao{5}}
-\renewcommand\cftsubsecpagefont{\songti\zihao{5}}
-\renewcommand\cftsubsubsecpagefont{\songti\zihao{5}}
+% \renewcommand\cftsubsubsecfont{\songti\zihao{-4}}
+\renewcommand\cftchappagefont{\heiti\zihao{-4}} % 目录页码字体 宋体小四
+\renewcommand\cftsecpagefont{\songti\zihao{-4}}
+\renewcommand\cftsubsecpagefont{\songti\zihao{-4}}
+% \renewcommand\cftsubsubsecpagefont{\songti\zihao{-4}}
 
-\renewcommand\cftchapafterpnum{\vskip5pt}
-\renewcommand\cftsecafterpnum{\vskip3pt}
-\renewcommand\cftsubsecafterpnum{\vskip2pt}
-\setlength{\cftsecindent}{1.85em}
-\setlength{\cftsubsecindent}{1.85em}
-\setlength{\cftsubsubsecindent}{1.85em}
+\renewcommand\cftchapafterpnum{\vskip0pt}  % 目录章标题后间距
+\renewcommand\cftsecafterpnum{\vskip0pt}
+% \renewcommand\cftsubsecafterpnum{\vskip2pt}
+\setlength{\cftsecindent}{1em}           % 目录二级标题缩进
+\setlength{\cftsubsecindent}{2em}
+% \setlength{\cftsubsubsecindent}{1.85em}
 
 %%% ---- 图表标题设置 ----- %%%
 \RequirePackage[labelsep=quad]{caption}     % 序号之后空一格写标题

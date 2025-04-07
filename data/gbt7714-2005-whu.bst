@@ -626,9 +626,11 @@ FUNCTION {format.names.en} {                         % String Entry::format_name
     remove.dots 'jrname :=                        %     jrname = remove_dots(tmp); 去除点号
     namelist nameindex "{f}" format.name$         %     tmp = format_name(namelist, nameindex, "{f}"); 名
     remove.dots                                   %     tmp = remove_dots(tmp);
-    "u" change.case$ 'firstname :=                %     firstname = change_case(tmp, "u"); 转小写
+    'firstname :=                                 %     firstname = tmp;
+    % "u" change.case$ 'firstname :=              %     firstname = change_case(tmp, "u"); 
     namelist nameindex "{ll}" format.name$        %     tmp = format_name(namelist, nameindex, "{ll}"); 姓
-    "u" change.case$ 'lastname :=                 %     lastname = change_case(tmp, "u");
+    'lastname :=                                  %     lastname = tmp;
+    % "u" change.case$ 'lastname :=               %     lastname = change_case(tmp, "u");
     jrname empty$ not {                           %     if (! empty(jrname)) {
       jrname * " " *                              %       result = result + jrname + " "
     } 'skip$ if$                                  %     }
