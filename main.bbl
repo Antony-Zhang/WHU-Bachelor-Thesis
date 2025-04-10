@@ -102,6 +102,9 @@
 \bibitem{liDiversityPromotingObjectiveFunction2016}
 \bibauthor{Li J\@, Galley M\@, Brockett C, et~al}\@. \bibtitle{A {{Diversity-Promoting Objective Function}} for {{Neural Conversation Models}}}\bibmark{[A]}\@. \bibeditor{Knight K\@, Nenkova A\@, Rambow O}\@. \bibbooktitle{Proceedings of the 2016 {{Conference}} of the {{North American Chapter}} of the {{Association}} for {{Computational Linguistics}}: {{Human Language Technologies}}}[C]\@, \bibaddress{San Diego, California}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2016}\thinspace{}\textnormal{: }\bibpages{110\thinspace{}\textnormal{--}\thinspace{}119}\@.
 
+\bibitem{wietingUniversalParaphrasticSentence2016a}
+\bibauthor{Wieting J\@, Bansal M\@, Gimpel K, et~al}\@. \bibtitle{Towards {{Universal Paraphrastic Sentence Embeddings}}}\bibmark{[J]}\@, \bibyear{2016}\bibnumber{(arXiv:1511.08198)}\@.
+
 \bibitem{dengIterativePolishingFramework2020}
 \bibauthor{Deng L\@, Wang J\@, Liang H, et~al}\@. \bibtitle{An {{Iterative Polishing Framework Based}} on {{Quality Aware Masked Language Model}} for {{Chinese Poetry Generation}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2020}\@, \bibvolume{34}\bibnumber{(05)}\thinspace{}\textnormal{: }\bibpages{7643\thinspace{}\textnormal{--}\thinspace{}7650}\@.
 
@@ -116,6 +119,9 @@
 
 \bibitem{zhuMiniGPT4EnhancingVisionLanguage2023}
 \bibauthor{Zhu D\@, Chen J\@, Shen X, et~al}\@. \bibtitle{{{MiniGPT-4}}: {{Enhancing Vision-Language Understanding}} with {{Advanced Large Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2304.10592)}\@.
+
+\bibitem{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}
+\bibauthor{Wu Z\@, Chen X\@, Pan Z, et~al}\@. \bibtitle{{{DeepSeek-VL2}}: {{Mixture-of-Experts Vision-Language Models}} for {{Advanced Multimodal Understanding}}}\bibmark{[J]}\@, \bibyear{2024}\bibnumber{(arXiv:2412.10302)}\@.
 
 \bibitem{brownLanguageModelsAre2020}
 \bibauthor{Brown T\@, Mann B\@, Ryder N, et~al}\@. \bibtitle{Language {{Models}} Are {{Few-Shot Learners}}}\bibmark{[A]}\@. \bibbooktitle{Advances in {{Neural Information Processing Systems}}\thinspace{}\textnormal{: }Vol~33}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Curran Associates, Inc.}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{1877\thinspace{}\textnormal{--}\thinspace{}1901}\@.

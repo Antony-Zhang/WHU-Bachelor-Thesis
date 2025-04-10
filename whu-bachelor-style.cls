@@ -30,6 +30,20 @@
 \renewcommand{\headrulewidth}{0.4pt}  % 页眉线宽
 \renewcommand{\footrulewidth}{0pt}    % 页脚线宽
 
+%%% --- 定义方框（用于存放提示词） ----- %%%
+\RequirePackage{tikz}
+\RequirePackage{tcolorbox}            % 方框盒子
+% \newtcolorbox{promptbox}[1][]{
+%     % colback=promptbg,          % 背景颜色
+%     colframe=black,     % 边框颜色
+%     % coltitle=black,            % 标题颜色
+%     % fonttitle=\bfseries,       % 标题字体加粗
+%     % boxrule=0.5mm,             % 边框粗细
+%     % arc=3mm,                   % 圆角弧度
+%     % outer arc=3mm,             % 外部圆角弧度
+%     % left=2mm, right=2mm, top=2mm, bottom=2mm, % 内边距
+%     #1                         % 其他可选参数
+% }
 % \makeatletter
 % \renewcommand{\chapterheadstartvskip}{\vspace*{0.5ex}} % 调整这里的值
 % \makeatother
@@ -61,6 +75,14 @@
 \ctexset{section={format={\raggedright \heiti \zihao{4}}}}          % 一级标题 黑体 4号
 \ctexset{subsection={format={\raggedright \heiti \zihao{-4}}}}      % 二级标题 黑体小4号
 \ctexset{subsubsection={format={\raggedright \heiti \zihao{-4}}}}   % 三级标题 黑体小4号
+
+% % 定义一个新的标题格式专用于附录
+% \RequirePackage{titlesec}
+% \newcommand{\appendixtitleformat}{
+%   \titleformat{\chapter}[hang]
+%     {\normalfont\Huge\bfseries}
+%     {附录~\thechapter}{1em}{}
+% }
 
 % 调整Chapter标题的上下文间距
 \makeatletter
@@ -158,6 +180,7 @@
 
 
 % 使用tabularx创建占满宽度的表格
+% \RequirePackage{tabularray}   % 表格
 \RequirePackage{tabularx, makecell}
 \newcolumntype{L}{X}
 \newcolumntype{C}{>{\centering \arraybackslash}X}
