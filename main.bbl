@@ -132,4 +132,7 @@
 \bibitem{wangSelfConsistencyImprovesChain2023a}
 \bibauthor{Wang X\@, Wei J\@, Schuurmans D, et~al}\@. \bibtitle{Self-{{Consistency Improves Chain}} of {{Thought Reasoning}} in {{Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2203.11171)}\@.
 
+\bibitem{liGeneratingClassicalChinese2018a}
+\bibauthor{Li J\@, Song Y\@, Zhang H, et~al}\@. \bibtitle{Generating {{Classical Chinese Poems}} via {{Conditional Variational Autoencoder}} and {{Adversarial Training}}}\bibmark{[A]}\@. \bibeditor{Riloff E\@, Chiang D\@, Hockenmaier J, et~al}\@. \bibbooktitle{Proceedings of the 2018 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}}}[C]\@, \bibaddress{Brussels, Belgium}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{3890\thinspace{}\textnormal{--}\thinspace{}3900}\@.
+
 \end{thebibliography}

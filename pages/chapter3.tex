@@ -1,3 +1,4 @@
+% !TeX root = ..\main.tex
 % Chapter 3
 
 \chapter{系统设计与实现}
@@ -17,13 +18,13 @@
 
 \section{图像分析}
 
-在先前的方案中，图像分析使用的是英文模型CLIP和MiniGPT-4，尽管生成的描述较精确、但无法捕捉有助于古诗创作的中国文化联想素材与情感色彩。因此，本系统使用DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}替代之前的多模型组合方案，一步到位地为图像生成兼顾关键物体识别、整体场景信息和情感色彩的描述。（提示词见~\ref{fig:prompt_image_analysis}）
+在先前的方案中，图像分析使用的是英文模型CLIP和MiniGPT-4，尽管生成的描述较精确、但无法捕捉有助于古诗创作的中国文化联想素材与情感色彩。因此，本系统使用DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}替代之前的多模型组合方案，一步到位地为图像生成兼顾关键物体识别、整体场景信息和情感色彩的描述。（提示词见图~\ref{fig:prompt_image_analysis}）
 
 在调用百度智能云的API接口时，需要提供提示词和图像的URL地址，因此还需要将用户提供的图像上传到云端，并获得可公开访问的URL。为此，使用阿里云的对象存储OSS服务，利用OSS Python SDK，将用户图像上传到云端后，生成带有过期时间的GET方法预签名URL，供后续API调用使用。
 
 \section{古诗生成}
 
-在先前的方案中，古诗生成使用的是ERNIE-4.0模型，其无法在遵守韵律要求的同时充分运用经典典故意象，更别说提供使用典故的注释。因此，本系统使用DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}，提示词设计参考CRISPE框架（提示词见~\ref{fig:prompt_poem_generation}）。
+在先前的方案中，古诗生成使用的是ERNIE-4.0模型，其无法在遵守韵律要求的同时充分运用经典典故意象，更别说提供使用典故的注释。因此，本系统使用DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}，提示词设计参考CRISPE框架（提示词见图~\ref{fig:prompt_poem_generation}）。
 
 CRISPE框架包括六个部分：
 \begin{enumerate}
@@ -41,7 +42,7 @@ CRISPE框架包括六个部分：
 
 \section{古诗评价}
 
-为了评价古诗的质量，本系统在自动度量方法的基础上，引入了DeepSeek-R1的评分机制。而为了使其能够给出合理、细致的评分，本文设计了一套包含五大维度的古诗评分体系（见~\ref{tab:poem_scoring}），在先前工作的基础上，这套体系强调了对子维度中分数段的详细划分，并提供对应的示例以进一步阐明评分标准。
+为了评价古诗的质量，本系统在自动度量方法的基础上，引入了DeepSeek-R1的评分机制。而为了使其能够给出合理、细致的评分，本文设计了一套包含五大维度的古诗评分体系（见表~\ref{tab:poem_scoring}），在先前工作的基础上，这套体系强调了对子维度中分数段的详细划分，并提供对应的示例以进一步阐明评分标准。
 
 基于这套评分体系，系统将逐一分析古诗的每个维度，给出分数和评语。此外，系统还将依照这套体系，逐一地给出修改意见，以提高古诗的质量。
 
@@ -58,3 +59,5 @@ CRISPE框架包括六个部分：
 ……
 <代码结构图>
 ……
+
+\section{系统运行示例}

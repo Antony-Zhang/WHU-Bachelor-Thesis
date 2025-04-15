@@ -1,3 +1,6 @@
+% !TeX root = ..\main.tex
+% !TeX program = xelatex
+
 % Chapter 1
 \chapter{绪论}
 
@@ -45,7 +48,9 @@ BLEU\cite{papineniBLEUMethodAutomatic2002}和ROUGE\cite{linROUGEPackageAutomatic
 除了自动度量方法外，也有一些研究实现了对古诗的质量优化。2020年，\cite{dengIterativePolishingFramework2020}提出一个质量感知的掩蔽语言模型，实现一个可迭代的古诗优化框架，可用于判断古诗是否需要优化，并在润色时定位不恰当部分。2023年，\cite{maYuShengHumaninLoop2023}提出一种人机协作的古诗创作系统，能够在不同的约束条件下对古诗进行润色。2024年，\cite{chenPolishingModelMachineGenerated2024}又提出了一个可迭代的古诗优化框架，基于BiLSTM和CRF构建用于检测低质量用词的检测网络、基于BERT模型构建用于修正用词的校正网络。这些研究均实现了“评价+优化”的流程功能，且效果良好。美中不足的是未提供对“评价”本身的解释，即“被选中的词为何是低质量的，而优化又依据着什么”的问题。
 
 \subsection{大模型技术}
-近年来，大模型技术取得了显著的进步，其中以大语言模型最为典型，例如OpenAI开发的生成预训练转换器（GPT）系列模型、百度开发的知识整合增强表示（ERNIE）系列模型\cite{zhangERNIEEnhancedLanguage2019}。DeepSeek开发了首个完全通过强化学习训练的大语言模型 DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}，其采用混合专家模型（Mixture-of-Experts, MoE）架构，实现在相同计算成本下大幅提升模型的参数规模与推理能力。而与LLM擅长自然语言类似，还有许多跨模态大模型适用于不同模态间数据的信息表征处理，如文本和图像。由OpenAI开发的CLIP模型\cite{radfordLearningTransferableVisual2021}包含一个文本解码器和一个图像解码器，在大量图像及其对应的文本描述的数据集上进行预训练，因而能够把握视觉表征与文本之间的关联。MiniGPT-4\cite{zhuMiniGPT4EnhancingVisionLanguage2023}是GPT-4模型的缩小版，它将一个与BLIP-2架构相同的视觉编码器与语言模型Vicuna通过一个单一的投影层链接起来，在图像描述生成方面展现出卓越的能力。
+近年来，大模型技术取得了显著的进步，其中以大语言模型最为典型，例如OpenAI开发的生成预训练转换器（GPT）系列模型、百度开发的知识整合增强表示（ERNIE）系列模型\cite{zhangERNIEEnhancedLanguage2019}。DeepSeek开发了首个完全通过强化学习训练的大语言模型 DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}，其采用混合专家模型（Mixture-of-Experts, MoE）架构，实现在相同计算成本下大幅提升模型的参数规模与推理能力。
+
+而与LLM擅长自然语言类似，还有许多跨模态大模型适用于不同模态间数据的信息表征处理，如文本和图像。由OpenAI开发的CLIP模型\cite{radfordLearningTransferableVisual2021}包含一个文本解码器和一个图像解码器，在大量图像及其对应的文本描述的数据集上进行预训练，因而能够把握视觉表征与文本之间的关联。MiniGPT-4\cite{zhuMiniGPT4EnhancingVisionLanguage2023}是GPT-4模型的缩小版，它将一个与BLIP-2架构相同的视觉编码器与语言模型Vicuna通过一个单一的投影层链接起来，在图像描述生成方面展现出卓越的能力。
 DeepSeek开发的DeepSeek-VL\cite{luDeepSeekVLRealWorldVisionLanguage2024}的训练数据来自广泛的现实场景，其采用了一个混合视觉编码器，可在固定的token预算内有效处理高分辨率图像，同时保持相对较低的计算开销，这一设计选择确保了模型在各种视觉任务中捕捉关键语义和详细信息的能力。有趣的是，DeepSeek-VL在一开始便整合了LLM的能力训练，促进视觉和语言两种模态能力的平衡整合，使其在能够捕捉视觉语义信息的同时，仍然具有强大的语言能力。在此基础上，DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}进一步改进了视觉与文本的能力整合。视觉上融入动态分块的编码策略以处理不同比例尺寸的图像，文本上则引入了MoE架构，可动态选择专家模型完成不同的任务。
 
 \subsection{提示工程}
