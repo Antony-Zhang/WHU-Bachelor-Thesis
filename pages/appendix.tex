@@ -168,54 +168,20 @@
 \end{figure}
 
 
+TODO Prompt：古诗评分
+
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=1\textwidth]
+%     {figures/Prompt_古诗评分.pdf}\\
+%     \caption{提示词（古诗评分）}
+%     \label{fig:prompt_poem_analysis} % 添加标签
+% \end{figure}
 
 
+% \chapter{数据}
 
 
-
-
-
-\chapter{数据}
-
-\begin{table}[ht]
-    \centering
-    \caption{白话文古诗生成实验结果（DeepSeek-R1）}
-    \label{tab:test_generation_tssbs_dsr1}
-    \begin{tabular}{cccccc}
-        \toprule
-        & \multicolumn{2}{c}{BLEU} & \multicolumn{3}{c}{ROUGE} \\
-        \cmidrule(r){2-3} \cmidrule(l){4-6}
-        & BL-1& BL-2& R-1& R-2& R-L\\
-        \midrule
-        七言律诗& 0.583599&\bf{0.432841}&\bf{0.557353}&\bf{0.349461}&0.527267\\
-        七言绝句&0.559833&0.415325&0.562665&0.344502&0.540417\\
-        五言律诗&\bf{0.597726}&0.432494&0.549401&0.337500&\bf{0.545573}\\
-        五言绝句&0.523605&0.332445&0.495130&0.245845&0.471983\\
-        \cmidrule{2-6} %添加2-4列的中线
-        平均&0.575037&0.414674&0.546996&0.329415&0.529737\\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}[ht]
-    \centering
-    \caption{白话文古诗生成实验结果（ERNIE-4.0）}
-    \label{tab:test_generation_tssbs_ernie4}
-    \begin{tabular}{cccccc}
-        \toprule
-        & \multicolumn{2}{c}{BLEU} & \multicolumn{3}{c}{ROUGE} \\
-        \cmidrule(r){2-3} \cmidrule(l){4-6}
-        & BL-1& BL-2& R-1& R-2& R-L\\
-        \midrule
-        七言律诗&0.765951&0.671162&0.770484&0.609392&0.743464\\
-        七言绝句&0.798136&0.702556&0.808346&0.649742&0.764375\\
-        五言律诗&0.691980&0.533006&0.670557&0.445450&0.646720\\
-        五言绝句&\bf{0.839312}&\bf{0.764698}&\bf{0.834125}&\bf{0.726052}&\bf{0.812500}\\
-        \cmidrule{2-6} %添加2-4列的中线
-        平均&0.767420&0.658670&0.765072&0.596372&0.734993\\
-        \bottomrule
-    \end{tabular}
-\end{table}
   
 
 

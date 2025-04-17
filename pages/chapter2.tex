@@ -3,7 +3,7 @@
 
 \chapter{古诗生成与大模型}
 
-本章主要介绍古诗生成任务的基本要求、现有技术方案以及古诗质量的度量方法，分析现有研究的不足之处，并简要介绍DeepSeek-R1与VL2两个大模型，为后续的系统设计方案作铺垫。
+本章主要介绍古诗生成任务的基本要求、现有技术方案以及古诗质量的度量方法，简要介绍DeepSeek-R1与VL2两个大模型，为后续的系统设计方案作铺垫。
 
 \section{古诗生成任务概述}
 
@@ -19,8 +19,9 @@
 
 排律是格律的变体，其延续律诗严格的格律要求，但篇幅较长，通常在十句以上，不过押韵要求较为宽松，中途可换韵。排律的篇幅和结构更为复杂，十分考验创作者的文学功底和创作技巧，因而在传统诗歌中，排律的作品相对较少。
 
-\section{现有方案}
-……
+% \section{现有方案} TODO 
+
+
 
 \section{古诗质量评估}
 \subsection{BLEU}
@@ -73,10 +74,12 @@ BLEU的值范围在$[0,1]$之间，值越大表示翻译质量越高，但绝对
 \end{equation}
 
 \subsection{Distinct}
-除了BLEU和ROUGE等基于参考文本对比的度量方法外，也有方法尝试独立地衡量文本自身的质量。其中一个例子是Distinct指标，其计算文本中独特的$n$-gram的数量与文本中所有$n$-gram的数量之比，以衡量文本中用词的多样性。\cite{liDiversityPromotingObjectiveFunction2016,liGeneratingClassicalChinese2018a} 
+除了BLEU和ROUGE等基于参考文本对比的度量方法外，也有方法尝试独立地衡量文本自身的质量。其中一个例子是Distinct指标，其计算文本中独特的$n$-gram的数量与文本中所有$n$-gram的数量之比，以衡量文本中用词的多样性。而同理于ROUGE，常常选取$1$-gram和$2$-gram来计算Distinct指标。\cite{liDiversityPromotingObjectiveFunction2016,liGeneratingClassicalChinese2018a} 
 
 \subsection{Similarity}
-为了衡量古诗中前后句子间的语义联系和一致性，也有研究尝试使用词向量，并基于余弦相似度来计算句子间的语义相似度。\cite{dengIterativePolishingFramework2020}
+为了衡量古诗中前后句子间的语义联系和一致性，也有研究尝试使用词向量，并基于余弦相似度来计算句子间的语义相似度。\cite{dengIterativePolishingFramework2020}如在\cite{chenPolishingModelMachineGenerated2024}和\cite{dengIterativePolishingFramework2020}中，由于输出固定为绝句（共四句诗），因此可固定计算头两句相似度\verb|Sim12|、后两句相似度\verb|Sim34|、以及二者的相似度\verb|Sim2L|。但对于未约束体裁的古诗生成任务，如律诗、绝句、排律，这样静态的计算方法并不适用。
+
+由此，本文使用了更通用的指标\verb|Sim_intra|和\verb|Sim_inter|，分别表示古诗中前后句子间的相似度和不同联之间的相似度。具体而言，对古诗中的句子两两分组，\verb|Sim_intra|计算组内两个句子的相似度并取平均（如第一句和第二句、第三句和第四句），\verb|Sim_inter|计算组间的相似度再取平均（如第一二句和第三四句、第三四句和第五六句）。
 
 这一方法的核心在于利用词向量模型在预训练阶段学习到的句子间的语义关系，因而指标分数十分依赖词向量模型的质量。为此，本文采用清华大学自自然语言研究中心开源的Bert-CCPoem词向量模型\footnote{https://github.com/THUNLP-AIPoet/BERT-CCPoem}，其在一个包含几乎所有中国传统诗词的数据集CCPC-v1.0上进行预训练，涵盖926024首古诗的8933162个句子，可提供高质量的古诗句子词向量。
 
@@ -88,18 +91,6 @@ BLEU的值范围在$[0,1]$之间，值越大表示翻译质量越高，但绝对
 
 
 \section{DeepSeek大模型}
-\subsection{DeepSeek-R1}
-
-DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\textwidth]
-    {figures/deepseek_r1_training.pdf}\\
-    \caption{DeepSeek-R1训练过程}
-    \label{fig:deepseek_r1_training} % 添加标签
-\end{figure}
-
 
 \subsection{DeepSeek-VL2}
 
@@ -127,4 +118,28 @@ DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}采用了三�
 
 DeepSeek-VL2的训练采用了三阶段训练范式，即先使用120万个图文对来建立跨模态关联，再使用混合$70\%$的图文数据和$30\%$纯文本数据来进行预训练，最后再专注于OCR增强和文档理解方面的监督微调。值得一提的是，DeepSeek-VL2的MoE架构包含有64个专家分组，每组都能处理特定的模态组合，并能在训练中通过负载均衡损失函数来优化专家激活分布，实现稀疏激活，从而大大提高推理效率（在总体176B的参数量下仅激活4.5B参数）。
 
+
+\subsection{DeepSeek-R1}
+
+为了训练模型的推理能力，过去的方法通常是在监督微调（supervised fine-tuning, SFT）后加入大量的思维链（CoT）范例数据，引导模型学会链式的推理思考。但DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}则采用了强化学习(RL)的路径来训练模型推理能力。
+
+在正式构建DeepSeek-R1前，DeepSeek团队先尝试验证强化学习方向的可行性——直接在基底模型上应用强化学习，而不使用任何SFT的数据，通过准确性奖励和格式奖励来训练出DeepSeek-R1-Zero。此外，为节省训练开销，采用相对策略优化（Group Relative Policy Optimization, LGRPO）算法，通过计算组内输出结果的得分均值来获得整个损失函数的期望值。
+
+而DeepSeek-R1的训练过程分为四个阶段（如图~\ref{fig:deepseek_r1_training_v2}）。
+\begin{enumerate}
+    \item 冷启动SFT：为了解决RL训练早期的不稳定性和语言混杂的问题，先采用较小规模的CoT数据集，对基底模型DeepSeek-V3-Base进行冷启动SFT，作为RL训练的初始模型。这里使用数据是带有反思和验证的详细思考答案，由DeepSeek-R1-Zero生成。
+    \item 推理导向RL：流程与训练DeepSeek-R1-Zero一致。此外，为了减少语言混杂的问题，引入了语言一致性奖励，以性能略微下降为代价，提高模型输出的可读性。
+    \item 拒绝采样SFT：利用上一阶段RL训练过程中的checkpoint进行拒绝采样，生成多个候选的推理轨迹，再利用DeepSeek-V3充当奖励模型来进行打分，仅保留评分最高的样本，以此获得60万推理数据。此外，还纳入了DeepSeek-V3的部分训练数据，并对部分任务进行提示生成，获得20万非推理数据。于是模型在大小为80万的数据集上进行两轮微调。
+    \item 全场景RL：为进一步实现人类偏好对齐，再次进行RL训练，使用基于规则的奖励来训练推理方面的学习，使用奖励模型来训练通用领域中较隐晦的人类偏好。
+\end{enumerate}
+
+此外，可直接使用“拒绝采样SFT”中使用的80万数据集对其他较小模型（如Qwen2.5-14B和Llama3.1-8B）进行SFT，得到蒸馏模型DeepSeek-R1-Distill。需要注意，这一过程并未包含强化学习训练。
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]
+    {figures/deepseek_r1_training_v2.pdf}\\
+    \caption{DeepSeek-R1训练过程}
+    \label{fig:deepseek_r1_training_v2} % 添加标签
+\end{figure}
 
