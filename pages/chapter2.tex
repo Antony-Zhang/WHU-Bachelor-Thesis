@@ -77,7 +77,7 @@ BLEU的值范围在$[0,1]$之间，值越大表示翻译质量越高，但绝对
 除了BLEU和ROUGE等基于参考文本对比的度量方法外，也有方法尝试独立地衡量文本自身的质量。其中一个例子是Distinct指标，其计算文本中独特的$n$-gram的数量与文本中所有$n$-gram的数量之比，以衡量文本中用词的多样性。而同理于ROUGE，常常选取$1$-gram和$2$-gram来计算Distinct指标。\cite{liDiversityPromotingObjectiveFunction2016,liGeneratingClassicalChinese2018a} 
 
 \subsection{Similarity}
-为了衡量古诗中前后句子间的语义联系和一致性，也有研究尝试使用词向量，并基于余弦相似度来计算句子间的语义相似度。\cite{dengIterativePolishingFramework2020}如在\cite{chenPolishingModelMachineGenerated2024}和\cite{dengIterativePolishingFramework2020}中，由于输出固定为绝句（共四句诗），因此可固定计算头两句相似度\verb|Sim12|、后两句相似度\verb|Sim34|、以及二者的相似度\verb|Sim2L|。但对于未约束体裁的古诗生成任务，如律诗、绝句、排律，这样静态的计算方法并不适用。
+为了衡量古诗中前后句子间的语义联系和一致性，也有研究尝试使用词向量，并基于余弦相似度来计算句子间的语义相似度。如在\cite{chenPolishingModelMachineGenerated2024}和\cite{dengIterativePolishingFramework2020}中，由于输出固定为绝句（共四句诗），因此可固定计算头两句相似度\verb|Sim12|、后两句相似度\verb|Sim34|、以及二者的相似度\verb|Sim2L|。但对于未约束体裁的古诗生成任务，如律诗、绝句、排律，这样静态的计算方法并不适用。
 
 由此，本文使用了更通用的指标\verb|Sim_intra|和\verb|Sim_inter|，分别表示古诗中前后句子间的相似度和不同联之间的相似度。具体而言，对古诗中的句子两两分组，\verb|Sim_intra|计算组内两个句子的相似度并取平均（如第一句和第二句、第三句和第四句），\verb|Sim_inter|计算组间的相似度再取平均（如第一二句和第三四句、第三四句和第五六句）。
 

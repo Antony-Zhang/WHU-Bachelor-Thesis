@@ -1,12 +1,28 @@
 % 中英文摘要
 
-\begin{cnabstract}{古诗生成；大模型；跨模态}
-  TODO：中文摘要
+\begin{cnabstract}{古诗生成；大模型；跨模态；可解释性}
+中国古代诗歌作为中华传统文化的重要载体，拥有高度凝练的语言风格、丰富多变的意象系统以及严格的格律结构。伴随着自然语言处理技术的发展，古诗生成作为生成式人工智能的研究热点，逐渐引起广泛关注。尤其近年来，大语言模型（Large Language Model, LLM）和多模态建模能力的持续进步，为自动化、个性化、高质量的古诗生成提供了全新的技术基础。然而，现有方法普遍存在两方面不足：一是仅支持图像或文本的单一模态输入，难以捕捉用户完整的创作意图；二是缺乏对生成过程与结果的可解释机制，用户难以理解生成逻辑或对创作质量进行评价与控制。
+
+针对上述问题，本文围绕“文图跨模态古诗生成”的任务目标，设计并实现了一个基于大模型的中文古诗生成系统。该系统融合视觉图像与文本输入信息，采用DeepSeek-VL2模型提取图像中的场景、意象与情感要素，并结合用户输入的文本提示，通过DeepSeek-R1模型生成符合平仄、押韵、对仗等格律规范的七言排律古诗。系统生成的古诗不仅满足语言艺术性，还自动输出古诗的白话翻译、典故注释和艺术赏析，从而增强了生成结果的文化深度与用户可理解性。
+
+在质量评估方面，本文设计了一套涵盖“格律规范”、“意象意境”、“主题思想”、“语言锤炼”与“创新性”五大维度的评分体系，明确各维度的评分标准和对应分数段，支持生成结果的量化分析。同时，结合BLEU、ROUGE、Distinct和Similarity等自动化评估指标，系统可对生成结果的结构完整性、语言多样性和语义一致性进行辅助评价。在此基础上，系统还支持结合评分与改进建议的多轮古诗优化，能够针对性地提升生成诗歌在薄弱维度上的表现，并保持其与原始用户输入之间的语义关联。
+
+系统通过对典型场景图像和文本输入的实验测试，验证了所提方法在生成古诗的规范性、美感与意境表达方面的有效性。实验结果显示，结合图文双模态输入能够显著提升古诗中意象结构的连贯性与主题呈现的深度，系统所设计的评分体系在区分度与可解释性方面也表现出良好效果。同时，优化模块可根据评分反馈实现多维度提升，生成结果更加符合用户审美与文化理解。
+
+综上所述，本文提出的基于大模型的跨模态古诗生成系统，为人机协作下的中文文学创作提供了新范式，有助于推动人工智能技术在中华传统文化传承与再创造过程中的融合与发展，具有一定的理论价值与应用前景。
   
 \end{cnabstract}
 
 
-\begin{enabstract}{Poetry Generation; Large Models; Cross-modal}
-  TODO：英文摘要
+\begin{enabstract}{Poetry Generation; Large Models; Cross-modal; Interpretability}
+  Classical Chinese poetry is a vital form of traditional Chinese culture, characterized by concise expression, rich imagery, and strict metrical rules. With the development of natural language processing (NLP), poetry generation has become an active area of research in generative AI. In recent years, large language models (LLMs) and cross-modal techniques have provided new tools and possibilities for automatic, personalized, and high-quality poem generation. However, current methods often suffer from two main problems: they typically support only single-modal input (either image or text), limiting their ability to fully capture user intent; and they lack interpretability, making it difficult for users to understand or evaluate the generated results.
+
+To address these issues, this thesis proposes a classical Chinese poetry generation system based on large models with cross-modal capabilities. The system combines user-provided images and text as input. It uses the DeepSeek-VL2 model to extract scene elements, objects, and emotional features from images, then applies the DeepSeek-R1 language model to generate structured seven-character regulated poems (páilǜ) that follow traditional rules such as rhyme, tone patterns, and parallelism. In addition to the poem itself, the system generates auxiliary outputs including modern Chinese translations, explanations of classical references, and artistic analysis, helping users better understand the meaning and cultural background of the poem.
+
+To evaluate poem quality, this thesis designs a five-dimensional scoring framework, covering rhythm rules, imagery and mood, thematic depth, language refinement, and creativity. Each aspect includes clear scoring criteria and levels. In addition, the system incorporates automatic metrics such as BLEU, ROUGE, Distinct, and Similarity to provide a more objective evaluation of structure, diversity, and coherence. Based on the evaluation results, the system supports multi-round poem optimization, offering suggestions for improvement while preserving alignment with the user's original intent.
+
+Experimental results on typical image-text inputs demonstrate that this approach improves coherence and thematic depth in the generated poems. The scoring framework shows strong performance in differentiation and interpretability, and the optimization module helps enhance poem quality in targeted areas. The overall system effectively balances poetic structure, cultural expression, and user relevance.
+
+In conclusion, this thesis presents a practical cross-modal poetry generation system that applies large models to support human-AI collaboration in literary creation. The work contributes to the integration of AI and traditional culture, offering new ideas for digital preservation and creative expression of Chinese classical poetry.
 
 \end{enabstract}

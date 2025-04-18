@@ -32,7 +32,7 @@
 
 %%% --- 定义方框（用于存放提示词） ----- %%%
 \RequirePackage{tikz}
-\RequirePackage{tcolorbox}            % 方框盒子
+\RequirePackage[most]{tcolorbox}            % 方框盒子
 % \newtcolorbox{promptbox}[1][]{
 %     % colback=promptbg,          % 背景颜色
 %     colframe=black,     % 边框颜色
@@ -177,6 +177,18 @@
 \renewcommand\figurename{\bf\songti\zihao{5} 图}
 \captionsetup[table]{textfont=bf}
 \renewcommand\tablename{\bf\songti\zihao{5} 表}
+
+
+% 预定义（在导言区加入一次即可）
+% \newcounter{fakefigure}[section]  % 和章节编号同步
+% % \renewcommand{\thefakefigure}{\thefigure}  % 共享编号
+\newcommand{\fakecaption}[2]{%
+  \refstepcounter{figure} % 关键：增加 figure 计数器 + 设置引用标签
+  \begin{center}
+    {\songti\zihao{5} \bf{图}~\thefigure\quad \songti\zihao{5}#1}
+  \end{center}
+  \label{#2}
+}
 
 
 % 使用tabularx创建占满宽度的表格
