@@ -115,7 +115,7 @@
 \bibauthor{Chen Z\@, Cao Y}\@. \bibtitle{A {{Polishing Model}} for {{Machine-Generated Ancient Chinese Poetry}}}\bibmark{[J]}\@. \bibjournal{Neural Processing Letters}\@, \bibyear{2024}\@, \bibvolume{56}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{77}\@.
 
 \bibitem{radfordLearningTransferableVisual2021}
-\bibauthor{Radford A\@, Kim J~W\@, Hallacy C, et~al}\@. \bibtitle{Learning {{Transferable Visual Models From Natural Language Supervision}}}\bibmark{[A]}\@. \bibbooktitle{Proceedings of the 38th {{International Conference}} on {{Machine Learning}}}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{PMLR}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{8748\thinspace{}\textnormal{--}\thinspace{}8763}\@.
+\bibauthor{Radford A\@, Kim J~W\@, Hallacy C, et~al}\@. \bibtitle{Learning {{Transferable Visual Models From Natural Language Supervision}}}\bibmark{[A]}\@. \bibbooktitle{Proceedings of the 38th {{International Conference}} on {{Machine Learning}}}[C]\@, \bibaddress{Online}\thinspace{}\textnormal{: }\bibpublisher{PMLR}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{8748\thinspace{}\textnormal{--}\thinspace{}8763}\@.
 
 \bibitem{zhuMiniGPT4EnhancingVisionLanguage2023}
 \bibauthor{Zhu D\@, Chen J\@, Shen X, et~al}\@. \bibtitle{{{MiniGPT-4}}: {{Enhancing Vision-Language Understanding}} with {{Advanced Large Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2304.10592)}\@.
