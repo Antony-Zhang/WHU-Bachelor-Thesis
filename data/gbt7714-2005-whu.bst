@@ -896,7 +896,8 @@ FUNCTION {format.citedate} {                      % String Emtry::format_citedat
                                                   % // since if the URL contains special symbols such
                                                   % // as '%', the \biburl{} will be broken.
 FUNCTION {format.url} {                           % String Emtry::format_url(String url) {
-  "\newline\url{" swap$ * "}" *                   %   return "\newline\url{" + url + "}";
+  % "\newline\url{" swap$ * "}" *                   %   return "\newline\url{" + url + "}";
+  "\url{" swap$ * "}" *           % 取消强制换行
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1727,18 +1728,19 @@ FUNCTION {online} {                               % void Entry::online() {
     address empty$ not {                          %     if (! empty(this.address)) {
       true output.address                         %       output_address(true);
       true output.publisher                       %       output_publisher(true);
-      cap.comma write$                            %       write(cap_comma);
+      cap.comma write$                            %       write(cap_comma); 逗号
     } {                                           %     } else {
       true output.publisher.no.address            %       output_publisher_no_address(true);
       cap.comma write$                            %       write(cap_comma);
     } if$                                         %     }
   } {                                             %   } else {
-    cap.period write$                             %     write(cap_period);
+    % cap.period write$                             %     write(cap_period); 句点
   } if$                                           %   }
+  true output.url                                 %   output_url(true); 提前到时间之前
+  cap.period write$   % 明确加句点结束 URL
   true output.year                                %   output_year(true);
   false output.modifydate                         %   output_modifydate(false);
   true output.citedate                            %   output_citedate(true);
-  true output.url                                 %   output_url(true);
   end.bibitem                                     %   end_bibitem();
 }                                                 % }
                                                   %

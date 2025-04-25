@@ -1,28 +1,70 @@
 % 中英文摘要
 
 \begin{cnabstract}{古诗生成；大模型；跨模态；可解释性}
-中国古代诗歌作为中华传统文化的重要载体，拥有高度凝练的语言风格、丰富多变的意象系统以及严格的格律结构。伴随着自然语言处理技术的发展，古诗生成作为生成式人工智能的研究热点，逐渐引起广泛关注。尤其近年来，大语言模型（Large Language Model, LLM）和多模态建模能力的持续进步，为自动化、个性化、高质量的古诗生成提供了全新的技术基础。然而，现有方法普遍存在两方面不足：一是仅支持图像或文本的单一模态输入，难以捕捉用户完整的创作意图；二是缺乏对生成过程与结果的可解释机制，用户难以理解生成逻辑或对创作质量进行评价与控制。
+  
+中国古代诗歌作为中华传统文化的重要载体，拥有高度凝练的语言风格、丰富多变的意象系统以及严格的格律结构。伴随着自然语言处理技术的发展，古诗生成作为生成式人工智能的研究热点，逐渐引起广泛关注。如何让机器模型深入理解并创作出具有文化内涵和艺术价值的古诗，继而为中华传统文化的再创造赋能，是一个富有挑战的有趣问题。
 
-针对上述问题，本文围绕“文图跨模态古诗生成”的任务目标，设计并实现了一个基于大模型的中文古诗生成系统。该系统融合视觉图像与文本输入信息，采用DeepSeek-VL2模型提取图像中的场景、意象与情感要素，并结合用户输入的文本提示，通过DeepSeek-R1模型生成符合平仄、押韵、对仗等格律规范的七言排律古诗。系统生成的古诗不仅满足语言艺术性，还自动输出古诗的白话翻译、典故注释和艺术赏析，从而增强了生成结果的文化深度与用户可理解性。
+然而，现有方法普遍存在三方面不足：一是仅支持图像或文本的单一模态输入，难以捕捉用户完整的创作意图；二是缺乏对生成过程与结果的可解释机制，对古诗的评价也缺乏可解释性；三是生成的古诗停留在形式语义，无法触及典故、意象等更深层的文化内涵，缺乏文化深度与艺术性。
 
-在质量评估方面，本文设计了一套涵盖“格律规范”、“意象意境”、“主题思想”、“语言锤炼”与“创新性”五大维度的评分体系，明确各维度的评分标准和对应分数段，支持生成结果的量化分析。同时，结合BLEU、ROUGE、Distinct和Similarity等自动化评估指标，系统可对生成结果的结构完整性、语言多样性和语义一致性进行辅助评价。在此基础上，系统还支持结合评分与改进建议的多轮古诗优化，能够针对性地提升生成诗歌在薄弱维度上的表现，并保持其与原始用户输入之间的语义关联。
+为此，本文旨在利用大模型的强大语义理解与生成能力，开发一个支持文图双模态的古诗生成系统，在生成时提供用户友好的解释性内容，并支持对古诗的分析与多轮优化。该系统采用DeepSeek-VL2模型提取图像中的场景、意象与情感要素，生成具有文化联想价值的描述文本。之后结合用户输入的文本提示，参考CRISPE框架设计提示词，调用DeepSeek-R1生成高质量的格律古诗，并提供赏析、注释和白话文翻译以提高结果可解释性。为量化评估古诗质量，本文设计了一个包含格律规范、意象意境、主题思想、语言锤炼和创新性五个维度的评分体系，结合Few-shot提示框架引导大模型进行客观评分与改进建议生成，同时借助ROUGE等自动度量方法作为辅助参考。最后，系统支持多轮优化，在结合改进建议的同时不偏离用户的原始输入，结合评分体系进行针对性质量提升，实现“生成—分析—反馈—优化”闭环。
 
-系统通过对典型场景图像和文本输入的实验测试，验证了所提方法在生成古诗的规范性、美感与意境表达方面的有效性。实验结果显示，结合图文双模态输入能够显著提升古诗中意象结构的连贯性与主题呈现的深度，系统所设计的评分体系在区分度与可解释性方面也表现出良好效果。同时，优化模块可根据评分反馈实现多维度提升，生成结果更加符合用户审美与文化理解。
+实验表明，基于强化学习训练的DeepSeek-R1相比于ERNIE-4.0等大语言模型，在典故意象的理解与运用能力上更具优势，能够给出充分合理的典故注释。而基于中文语境训练的DeepSeek-VL2相比于英文模型CLIP与Minigpt4，更能捕捉图像中的文化符号和情感。通过对质量分层的古诗作品集的评分测试，证明系统的评分功能具有良好的区分度与可信度，并进一步检验了自动度量方法的有效性。此外，本文还尝试对比DeepSeek-R1与ERNIE-4.0生成古诗的能力，但由于测试数据《唐诗三百首》与大模型训练语料重叠而失效。通过消融实验对文图模态进行测试，并未发现其对古诗生成质量的显著作用，但图像模态的加入能够帮助用户更好地表达创作意图，提升系统的可用性与交互体验。
 
-综上所述，本文提出的基于大模型的跨模态古诗生成系统，为人机协作下的中文文学创作提供了新范式，有助于推动人工智能技术在中华传统文化传承与再创造过程中的融合与发展，具有一定的理论价值与应用前景。
+本文通过设计与实现一个基于大模型的跨模态古诗生成系统，结合文图两张模态来强化生成古诗与用户需求的契合度，让模型输出用户友好的解释性文本，提高了系统输出结果的可解释性；并设计一套完备有效的古诗评分体系，探索利用大模型进行古诗评分的可行性，并辅以自动度量方法进行验证。本文还测试探索了不同大模型在图像描述和古诗生成上的表现，尤其是对诗意美学和意象典故的把握，并设计实验检验系统有效性，批判地分析了文图模态对古诗生成的影响。本文的研究工作为古诗生成系统的设计与实现提供了新的思路与方法，推动了大模型在中华传统文化传承与再创造中的应用。
+
+
+% 近年来，大模型展现出强大的语义理解能力和生成能力，为更高质量古诗的生成提供了可能性。
+
+% 现有研究主要集中在基于文本的古诗生成任务上，利用大语言模型对古诗的格律、意象和主题进行建模与生成，取得了一定的成果。同时，随着图像理解技术的发展，图像作为一种重要的表达媒介，能够为古诗创作提供丰富的视觉信息和情感线索。通过将图像与文本结合，可以更全面地捕捉用户的创作意图，从而提升古诗生成的质量与多样性。
+
+
+
+% 针对上述问题，本文围绕“文图跨模态古诗生成”的任务目标，设计并实现了一个基于大模型的中文古诗生成系统。该系统融合视觉图像与文本输入信息，采用DeepSeek-VL2模型提取图像中的场景、意象与情感要素，并结合用户输入的文本提示，通过DeepSeek-R1模型生成符合平仄、押韵、对仗等格律规范的七言排律古诗。系统生成的古诗不仅满足语言艺术性，还自动输出古诗的白话翻译、典故注释和艺术赏析，从而增强了生成结果的文化深度与用户可理解性。
+
+% 在质量评估方面，本文设计了一套涵盖“格律规范”、“意象意境”、“主题思想”、“语言锤炼”与“创新性”五大维度的评分体系，明确各维度的评分标准和对应分数段，支持生成结果的量化分析。同时，结合BLEU、ROUGE、Distinct和Similarity等自动化评估指标，系统可对生成结果的结构完整性、语言多样性和语义一致性进行辅助评价。在此基础上，系统还支持结合评分与改进建议的多轮古诗优化，能够针对性地提升生成诗歌在薄弱维度上的表现，并保持其与原始用户输入之间的语义关联。
+
+% 系统通过对典型场景图像和文本输入的实验测试，验证了所提方法在生成古诗的规范性、美感与意境表达方面的有效性。实验结果显示，系统所设计的评分体系在区分度与可解释性方面也表现出良好效果，但结合图文双模态输入未能展现对古诗质量的显著作用，而更多地用于明确用户需求。此外，优化模块可根据评分反馈实现多维度提升，生成结果更加符合用户审美与文化理解。
+
+% TODO 修改摘要
+
+% 综上所述，本文提出的基于大模型的跨模态古诗生成系统，为人机协作下的中文文学创作提供了新范式，有助于推动人工智能技术在中华传统文化传承与再创造过程中的融合与发展，具有一定的理论价值与应用前景。
+
+% 基于深度学习的中文验证码识别研究与实现  
+% 	1）什么是中文验证码识别 （1-2句话）  
+% 	2）中文验证码识别的用途和意义 （1-3句话）  
+% 	3）中文验证码目前的挑战（只讲自己解决了的，和后面呼应）  
+% 	4）本文研究目标和研究内容 （至少一段）  
+% 	5）研究结果（如提升了多少指标，有数据最好）  
+% 	6）本文的贡献 （详细说）
   
 \end{cnabstract}
 
 
 \begin{enabstract}{Poetry Generation; Large Models; Cross-modal; Interpretability}
-  Classical Chinese poetry is a vital form of traditional Chinese culture, characterized by concise expression, rich imagery, and strict metrical rules. With the development of natural language processing (NLP), poetry generation has become an active area of research in generative AI. In recent years, large language models (LLMs) and cross-modal techniques have provided new tools and possibilities for automatic, personalized, and high-quality poem generation. However, current methods often suffer from two main problems: they typically support only single-modal input (either image or text), limiting their ability to fully capture user intent; and they lack interpretability, making it difficult for users to understand or evaluate the generated results.
 
-To address these issues, this thesis proposes a classical Chinese poetry generation system based on large models with cross-modal capabilities. The system combines user-provided images and text as input. It uses the DeepSeek-VL2 model to extract scene elements, objects, and emotional features from images, then applies the DeepSeek-R1 language model to generate structured seven-character regulated poems (páilǜ) that follow traditional rules such as rhyme, tone patterns, and parallelism. In addition to the poem itself, the system generates auxiliary outputs including modern Chinese translations, explanations of classical references, and artistic analysis, helping users better understand the meaning and cultural background of the poem.
 
-To evaluate poem quality, this thesis designs a five-dimensional scoring framework, covering rhythm rules, imagery and mood, thematic depth, language refinement, and creativity. Each aspect includes clear scoring criteria and levels. In addition, the system incorporates automatic metrics such as BLEU, ROUGE, Distinct, and Similarity to provide a more objective evaluation of structure, diversity, and coherence. Based on the evaluation results, the system supports multi-round poem optimization, offering suggestions for improvement while preserving alignment with the user's original intent.
+Ancient Chinese poetry, as a vital carrier of traditional Chinese culture, is characterized by its highly condensed language, rich and varied imagery systems, and strict metrical structures. With the advancement of natural language processing technologies, poetry generation has emerged as a key research area in generative artificial intelligence, attracting increasing attention. Enabling machine models to deeply understand and compose culturally rich and artistically valuable ancient poems—thereby empowering the reinterpretation and recreation of traditional Chinese culture—poses a challenging yet fascinating problem.  
 
-Experimental results on typical image-text inputs demonstrate that this approach improves coherence and thematic depth in the generated poems. The scoring framework shows strong performance in differentiation and interpretability, and the optimization module helps enhance poem quality in targeted areas. The overall system effectively balances poetic structure, cultural expression, and user relevance.
+However, existing methods generally suffer from three major limitations: (1) reliance on single-modal inputs (either text or images), making it difficult to fully capture user intent; (2) lack of explainability in both the generation process and evaluation, hindering interpretability; and (3) generated poems often remain superficial in form and semantics, failing to incorporate deeper cultural elements such as allusions and imagery, thus lacking cultural depth and artistic merit.  
 
-In conclusion, this thesis presents a practical cross-modal poetry generation system that applies large models to support human-AI collaboration in literary creation. The work contributes to the integration of AI and traditional culture, offering new ideas for digital preservation and creative expression of Chinese classical poetry.
+To address these issues, this study leverages the powerful semantic understanding and generation capabilities of large models (LMs) to develop a multimodal poetry generation system that supports both text and image inputs. The system provides user-friendly explanatory content during generation and enables poem analysis and iterative refinement. Specifically, the DeepSeek-VL2 model extracts scenes, imagery, and emotional elements from images to generate culturally evocative textual descriptions. These descriptions, combined with user-provided text prompts, are then processed using the CRISPE framework to guide DeepSeek-R1 in generating high-quality metrically structured poems. To enhance interpretability, the system provides annotations, appreciations, and vernacular translations.  
+  
+For quantitative evaluation, a five-dimensional scoring system is designed, assessing metrics such as metrical correctness, imagery and artistic conception, thematic coherence, linguistic refinement, and creativity. A few-shot prompting framework guides LLMs in generating objective scores and improvement suggestions, supplemented by automated metrics like ROUGE for validation. Additionally, the system supports iterative optimization, refining poems based on feedback while preserving user intent, forming a closed-loop workflow of ``generation -- analysis -- feedback -- optimization".
+
+Experiments demonstrate that DeepSeek-R1, trained via reinforcement learning, outperforms models like ERNIE-4.0 in understanding and applying allusions and imagery, providing more reasonable annotations. Meanwhile, DeepSeek-VL2, optimized for Chinese cultural contexts, surpasses English-based models like CLIP and MiniGPT-4 in recognizing culturally significant symbols and emotions in images. Evaluation on a stratified poetry dataset confirms the scoring system's discriminative power and reliability, while validating the effectiveness of automated metrics.  
+
+Ablation studies on multimodal inputs reveal that while images do not significantly improve generation quality, they enhance user intent expression and system usability. Additionally, comparative tests between DeepSeek-R1 and ERNIE-4.0 were inconclusive due to overlap between the test dataset (\textit{Three Hundred Tang Poems}) and the models' training corpora.  
+
+This study contributes a novel multimodal poetry generation system that strengthens alignment between generated poems and user intent while improving interpretability through explanatory outputs. It also proposes a comprehensive scoring framework, exploring the feasibility of LLM-based evaluation supplemented by automated metrics. Furthermore, it critically examines the role of multimodal inputs in poetry generation and evaluates different LLMs' capabilities in capturing poetic aesthetics and cultural depth. The findings provide new insights into AI-driven poetry generation, advancing the application of large models in the preservation and creative reinterpretation of traditional Chinese culture.  
+  
+%   Classical Chinese poetry is a vital form of traditional Chinese culture, characterized by concise expression, rich imagery, and strict metrical rules. With the development of natural language processing (NLP), poetry generation has become an active area of research in generative AI. In recent years, large language models (LLMs) and cross-modal techniques have provided new tools and possibilities for automatic, personalized, and high-quality poem generation. However, current methods often suffer from two main problems: they typically support only single-modal input (either image or text), limiting their ability to fully capture user intent; and they lack interpretability, making it difficult for users to understand or evaluate the generated results.
+
+% To address these issues, this thesis proposes a classical Chinese poetry generation system based on large models with cross-modal capabilities. The system combines user-provided images and text as input. It uses the DeepSeek-VL2 model to extract scene elements, objects, and emotional features from images, then applies the DeepSeek-R1 language model to generate structured seven-character regulated poems (páilǜ) that follow traditional rules such as rhyme, tone patterns, and parallelism. In addition to the poem itself, the system generates auxiliary outputs including modern Chinese translations, explanations of classical references, and artistic analysis, helping users better understand the meaning and cultural background of the poem.
+
+% To evaluate poem quality, this thesis designs a five-dimensional scoring framework, covering rhythm rules, imagery and mood, thematic depth, language refinement, and creativity. Each aspect includes clear scoring criteria and levels. In addition, the system incorporates automatic metrics such as BLEU, ROUGE, Distinct, and Similarity to provide a more objective evaluation of structure, diversity, and coherence. Based on the evaluation results, the system supports multi-round poem optimization, offering suggestions for improvement while preserving alignment with the user's original intent.
+
+% Experimental results on typical image-text inputs demonstrate that this approach improves coherence and thematic depth in the generated poems. The scoring framework shows strong performance in differentiation and interpretability, and the optimization module helps enhance poem quality in targeted areas. The overall system effectively balances poetic structure, cultural expression, and user relevance.
+
+% In conclusion, this thesis presents a practical cross-modal poetry generation system that applies large models to support human-AI collaboration in literary creation. The work contributes to the integration of AI and traditional culture, offering new ideas for digital preservation and creative expression of Chinese classical poetry.
 
 \end{enabstract}

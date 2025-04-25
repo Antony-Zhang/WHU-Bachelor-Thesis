@@ -13,7 +13,7 @@
 
 \begin{enumerate}
     \item 押韵：指诗中某些句子的末尾字使用相同或相近的韵母，形成韵脚和谐的音韵效果。律诗和绝句均要求在偶数句的句末押韵，首句可押可不押，且通常押平声韵。在唐诗中，往往要求一韵到底，即整首诗只能使用同一个韵部的字来押韵，中途不可换韵。
-    \item 平仄：指汉字声调的高低，分为平声和仄声，在现代汉语中大致对应为一二声和三四声。在唐诗中，五言与七言各有不同的格律格式，如五言诗有四种基本的平仄类型，分别为“平平平仄仄”“仄仄平平仄”“仄仄仄平平”“平平仄仄平”，不同类型可在同一首诗中交替使用。此外，律诗的偶数句中的第二字须与前一句的第二字平仄相同，称为“粘连”。
+    \item 平仄：指汉字声调的高低，分为平声和仄声，在现代汉语中大致对应为一二声和三四声。在唐诗中，五言与七言各有不同的格律格式，如五言诗有四种基本的平仄类型，分别为“平平平仄仄”“仄仄平平仄”“仄仄仄平平”“平平仄仄平”，不同类型可在同一首诗中交替使用。此外，律诗的偶数句中的第二字须与前一句的第二字平仄相同，称为“粘连”\upcite{唐代诗格声律论研究}。
     \item 对仗：指律诗中颔联（第三、四句）与颈联（第五、六句）在词性、语义、平仄等结构上形成对称关系，这也是律诗重要的特征之一。如“大漠孤烟直，长河落日圆”，前后两句的词性、语义、平仄均形成对称关系，朗朗上口。
 \end{enumerate}
 
@@ -24,8 +24,11 @@
 
 
 \section{古诗质量评估}
-\subsection{BLEU}
-BLEU（Bilingual Evaluation Understudy），又名双语替换测评，是一种用于评估机器翻译质量的指标，核心是通过比较机器翻译结果与参考翻译之间的$n$-gram匹配情况来评估翻译质量，并以精确率（Precision）作为衡量指标。\cite{papineniBLEUMethodAutomatic2002}
+
+古诗质量评估有多种方法，此处仅介绍与本文相关的自动度量方法以及人工评估方法，这也是相关研究中常用的方法。
+
+\subsection{BLEU} \label{sec:bleu}
+BLEU（Bilingual Evaluation Understudy），又名双语替换测评，是一种用于评估机器翻译质量的指标，核心是通过比较机器翻译结果与参考翻译之间的$n$-gram匹配情况来评估翻译质量，并以精确率（Precision）作为衡量指标\upcite{papineniBLEUMethodAutomatic2002}。
 
 具体而言，其计算候选句子中在参考句子中出现的$n$-gram的次数$Count$。
 而为了避免导向无意义的$n$-gram重复，BLEU对候选句子中的$n$-gram计数进行截断（clip），使同一个$n$-gram的计数不超过参考句子中该$n$-gram的最大次数，即$Count_{clip}=\min\{Count,Max\_Ref\_Count\}$。
@@ -60,8 +63,8 @@ BLEU的值范围在$[0,1]$之间，值越大表示翻译质量越高，但绝对
 
 在实际使用中，权重$\omega_i$通常设置为$\frac{1}{N}$，即$n$-gram的加权平均。例如，BLEU-$2$的权重设置为$\omega_1=\omega_2=0.5$。古诗中的词大多是一到两个字，因此古诗生成任务中通常使用BLEU-$1$和BLEU-$2$。
 
-\subsection{ROUGE}
-与BLEU类似，ROUGE（Recall-Oriented Understudy for Gisting Evaluation）同样通过比较候选文本与参考文本之间的重叠$n$-gram来衡量文本翻译的准确率，但又更适用于文本摘要等注重信息提取和保留的任务。\cite{linROUGEPackageAutomatic2004}
+\subsection{ROUGE} \label{sec:rouge}
+与BLEU类似，ROUGE（Recall-Oriented Understudy for Gisting Evaluation）同样通过比较候选文本与参考文本之间的重叠$n$-gram来衡量文本翻译的准确率，但又更适用于文本摘要等注重信息提取和保留的任务\upcite{linROUGEPackageAutomatic2004}。
 
 区别于BLEU适用准确率，ROUGE使用召回率（Recall）作为衡量指标，计算候选文本$\mathcal C$中重叠的$n$-gram的数量与参考文本$\mathcal R$中$n$-gram的数量之比。如式\eqref{eq:rouge_n}
 \begin{equation}
@@ -74,34 +77,33 @@ BLEU的值范围在$[0,1]$之间，值越大表示翻译质量越高，但绝对
 \end{equation}
 
 \subsection{Distinct}
-除了BLEU和ROUGE等基于参考文本对比的度量方法外，也有方法尝试独立地衡量文本自身的质量。其中一个例子是Distinct指标，其计算文本中独特的$n$-gram的数量与文本中所有$n$-gram的数量之比，以衡量文本中用词的多样性。而同理于ROUGE，常常选取$1$-gram和$2$-gram来计算Distinct指标。\cite{liDiversityPromotingObjectiveFunction2016,liGeneratingClassicalChinese2018a} 
+除了BLEU和ROUGE等基于参考文本对比的度量方法外，也有方法尝试独立地衡量文本自身的质量。其中一个例子是Distinct指标，其计算文本中独特的$n$-gram的数量与文本中所有$n$-gram的数量之比，以衡量文本中用词的多样性。而同理于ROUGE，常常选取$1$-gram和$2$-gram来计算Distinct指标\upcite{liDiversityPromotingObjectiveFunction2016,liGeneratingClassicalChinese2018a}。
 
 \subsection{Similarity}
-为了衡量古诗中前后句子间的语义联系和一致性，也有研究尝试使用词向量，并基于余弦相似度来计算句子间的语义相似度。如在\cite{chenPolishingModelMachineGenerated2024}和\cite{dengIterativePolishingFramework2020}中，由于输出固定为绝句（共四句诗），因此可固定计算头两句相似度\verb|Sim12|、后两句相似度\verb|Sim34|、以及二者的相似度\verb|Sim2L|。但对于未约束体裁的古诗生成任务，如律诗、绝句、排律，这样静态的计算方法并不适用。
-
-由此，本文使用了更通用的指标\verb|Sim_intra|和\verb|Sim_inter|，分别表示古诗中前后句子间的相似度和不同联之间的相似度。具体而言，对古诗中的句子两两分组，\verb|Sim_intra|计算组内两个句子的相似度并取平均（如第一句和第二句、第三句和第四句），\verb|Sim_inter|计算组间的相似度再取平均（如第一二句和第三四句、第三四句和第五六句）。
-
-这一方法的核心在于利用词向量模型在预训练阶段学习到的句子间的语义关系，因而指标分数十分依赖词向量模型的质量。为此，本文采用清华大学自自然语言研究中心开源的Bert-CCPoem词向量模型\footnote{https://github.com/THUNLP-AIPoet/BERT-CCPoem}，其在一个包含几乎所有中国传统诗词的数据集CCPC-v1.0上进行预训练，涵盖926024首古诗的8933162个句子，可提供高质量的古诗句子词向量。
+为了衡量古诗中前后句子间的语义联系和一致性，也有研究尝试使用词向量，并基于余弦相似度来计算句子间的语义相似度。这些研究由于输出固定为绝句（共四句诗），因此可固定计算头两句相似度\verb|Sim12|、后两句相似度\verb|Sim34|、以及二者的相似度\verb|Sim2L|\upcite{chenPolishingModelMachineGenerated2024,dengIterativePolishingFramework2020}。
 
 \subsection{人工评估}
 
 由于古诗体裁的高度的艺术性，过去的研究中往往会邀请人类评审来评估古诗的质量。评估往往会基于单独设计的分析角度进行，如“流畅性”、“艺术性”、“连贯性”等等，依赖于分析维度的先验设计。此外，人类评审的结果往往依赖于评审员自身的文化素养、个人品味与喜好，结果难有一致性。此外，招募具有高文学素养的人类评审员也是一个难题。
 
-由此，本文认为可利用大模型的语言能力行使人类评审员的功能，设计一套严格的质量评估体系，作为提示词指导大模型，便可得到具有高解释性、高一致性的古诗质量评估结果。
+由此，本文认为可利用大模型的语言能力行使人类评审员的功能，设计一套严格的质量评估体系，作为提示词指导大模型，便可得到具有高解释性、高一致性的古诗质量评估结果。已有部分研究尝试过使用大模型来进行古诗评判，但并问深入探索大模型的评判能力\upcite{WuRongHeYunLuTeZhengDeShiGeShengChengMoXing2024}。
 
 
 \section{DeepSeek大模型}
 
-\subsection{DeepSeek-VL2}
+下面概述DeepSeek-VL2和DeepSeek-R1两个大模型的技术特点。
 
-DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}采用了三阶段混合架构，包括视觉编码器、视觉-语言适配器和混合专家语言模型三大模块，如图~\ref{fig:deepseek_vl2_structure}。
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\textwidth]
-    {figures/deepseek_vl2_structure.pdf}\\
-    \caption{DeepSeek-VL2模型架构\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}}
-    \label{fig:deepseek_vl2_structure} % 添加标签
-\end{figure}
+\subsection{DeepSeek-VL2}
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=1\textwidth]
+%     {figures/deepseek_vl2_structure.pdf}\\
+%     \caption{DeepSeek-VL2模型架构\upcite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}}
+%     \label{fig:deepseek_vl2_structure} % 添加标签
+% \end{figure}
+
+DeepSeek-VL2\upcite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}采用了三阶段混合架构，包括视觉编码器、视觉-语言适配器和混合专家语言模型三大模块。
+
 
 \begin{enumerate}
     \item 视觉编码器（Vision Encoder）：为了支持更大分辨率、不同比例尺寸的图像，在先前VL1模型SigLIP框架的基础上引入动态切片策略（dynamic tiling strategy），将高分辨率图像自适应分割为$384\times384$的子图块，再与全局缩略图块组合。该策略在保证宽高比不变的前提下，通过填充面积最小化算法选择最优分割方案，解决了传统固定分辨率编码导致的细节丢失问题，使模型支持最高$1152\times1152$的分辨率输入。如图~\ref{fig:deepseek_vl2_cropping_strategy}所示。
@@ -109,7 +111,7 @@ DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}采用了三�
         \centering
         \includegraphics[width=1\textwidth]
         {figures/deepseek_vl2_cropping_strategy.pdf}\\
-        \caption{DeepSeek-VL2动态切片策略\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}}
+        \caption{DeepSeek-VL2动态切片策略\upcite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}}
         \label{fig:deepseek_vl2_cropping_strategy} % 添加标签
     \end{figure}
     \item 视觉-语言适配器（VL Adaptor）：承接上一步中加入的\verb|<换行Token>|（用户区分局部图块的结束）和\verb|<视觉分隔Token>|（用于区分全局缩略图和局部图块），采用双层感知机与$2\times2$像素混洗（pixel shuffle）操作，将视觉特征维度压缩映射到文本嵌入空间。该设计在保留局部细节特征的同时，实现了跨模态特征的高效对齐。
@@ -119,9 +121,32 @@ DeepSeek-VL2\cite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}采用了三�
 DeepSeek-VL2的训练采用了三阶段训练范式，即先使用120万个图文对来建立跨模态关联，再使用混合$70\%$的图文数据和$30\%$纯文本数据来进行预训练，最后再专注于OCR增强和文档理解方面的监督微调。值得一提的是，DeepSeek-VL2的MoE架构包含有64个专家分组，每组都能处理特定的模态组合，并能在训练中通过负载均衡损失函数来优化专家激活分布，实现稀疏激活，从而大大提高推理效率（在总体176B的参数量下仅激活4.5B参数）。
 
 
+% \subsection{Qwen-2.5-VL}
+
+% Qwen2.5-VL\upcite{qwen2.5vl_technical_report_2024}创新性地构建了四阶段协同架构，整合高精度视觉解码、动态跨模态对齐、多尺度特征融合及专家级语言建模模块，形成端到端的视觉语言理解系统。
+
+% \begin{enumerate}
+%     \item **多尺度视觉编码器（Multi-scale Vision Encoder）**：在Vision Transformer基础上引入动态金字塔结构（Dynamic Pyramid Network），通过渐进式下采样策略生成$16\times16$至$128\times128$的多层级特征图谱。针对中文场景特有的密集文本图像（如古籍扫描件），创新性地嵌入自适应注意力掩码机制，通过像素级语义权重分配提升细粒度文字识别能力。该架构支持最高$4096\times4096$分辨率输入，并采用分块并行计算策略将显存占用降低至传统方法的$15\%$（如图~\ref{fig:qwen2.5vl_pyramid}所示）。
+%     \begin{figure}[ht]
+%         \centering
+%         \includegraphics[width=1\textwidth]
+%         {figures/qwen2.5vl_pyramid.pdf}\\
+%         \caption{Qwen2.5-VL多尺度特征提取框架\upcite{qwen2.5vl_technical_report_2024}}
+%         \label{fig:qwen2.5vl_pyramid}
+%     \end{figure}
+
+%     \item **跨模态对齐中枢（Cross-modal Alignment Hub）**：设计双流融合网络实现视觉特征与文本嵌入的深度对齐。其中空间注意力流采用可变形卷积核动态捕捉局部关联，语义融合流则通过对比学习强化跨模态一致性。特别针对中文长文本特性，引入层次化位置编码（Hierarchical Positional Encoding）解决图文错位问题，在COCO-CN数据集上实现$91.2\%$的图文匹配准确率。
+
+%     \item **专家级语言解码器（Expert Language Decoder）**：基于MoE架构构建包含128个专业领域专家的混合网络，每个输入token通过门控机制激活Top-3专家组合。创新性地引入动态路由损失函数（Dynamic Routing Loss），通过强化学习优化专家协作模式，在保持$175B$参数总量的前提下实现$3.2B$有效激活参数的精准调控。该设计使模型在中文法律文档解析任务中达到$98.7\%$的实体识别F1值。
+
+%     \item **多模态记忆网络（Multimodal Memory Network）**：构建可扩展的外部记忆模块存储视觉原型特征，通过注意力检索机制实现长程依赖建模。针对中文场景下的场景图生成任务，设计三元组增强训练策略，使模型在Visual Genome中文版的场景理解准确率提升至$79.4\%$。
+% \end{enumerate}
+
+% Qwen2.5-VL采用四阶段渐进式训练策略：首先利用$2.4M$高质量图文对建立基础跨模态关联，随后通过混合$65\%$图文数据与$35\%$纯文本数据进行预训练，最后针对中文特定领域（古籍识别、票据分析等）开展监督微调。其稀疏激活机制通过动态负载均衡损失实现专家资源优化配置，在$175B$总参数规模下实际推理仅激活$5.6B$参数，推理效率较传统架构提升$68\%$。特别开发的中文视觉词典（Chinese Visual Lexicon）包含$8M$个细粒度实体映射关系，显著增强模型对书法艺术、篆刻印章等传统文化元素的解析能力。
+
 \subsection{DeepSeek-R1}
 
-为了训练模型的推理能力，过去的方法通常是在监督微调（supervised fine-tuning, SFT）后加入大量的思维链（CoT）范例数据，引导模型学会链式的推理思考。但DeepSeek-R1\cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}则采用了强化学习(RL)的路径来训练模型推理能力。
+为了训练模型的推理能力，过去的方法通常是在监督微调（supervised fine-tuning, SFT）后加入大量的思维链（CoT）范例数据，引导模型学会链式的推理思考。但DeepSeek-R1\upcite{deepseek-aiDeepSeekR1IncentivizingReasoning2025}则采用了强化学习(RL)的路径来训练模型推理能力。
 
 在正式构建DeepSeek-R1前，DeepSeek团队先尝试验证强化学习方向的可行性——直接在基底模型上应用强化学习，而不使用任何SFT的数据，通过准确性奖励和格式奖励来训练出DeepSeek-R1-Zero。此外，为节省训练开销，采用相对策略优化（Group Relative Policy Optimization, LGRPO）算法，通过计算组内输出结果的得分均值来获得整个损失函数的期望值。
 
@@ -143,3 +168,6 @@ DeepSeek-VL2的训练采用了三阶段训练范式，即先使用120万个图�
     \label{fig:deepseek_r1_training_v2} % 添加标签
 \end{figure}
 
+\section{本章小结}
+
+本章介绍了古诗生成任务的基本要求，包括押韵、平仄、对仗等格律规范，以及BLEU、ROUGE等自动评估指标和人工评估方法。针对评估的主观性问题，提出可利用大模型构建更稳定的评判体系。同时概述了DeepSeek-VL2和DeepSeek-R1两大模型的技术特点：VL2采用混合专家架构实现多模态理解，R1通过强化学习优化推理能力，采用分阶段训练策略提升生成质量。这些内容为后续系统设计奠定了基础。

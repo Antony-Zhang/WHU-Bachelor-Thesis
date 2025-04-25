@@ -79,7 +79,7 @@
 \bibauthor{Shao Y\@, Shao T\@, Wang M, et~al}\@. \bibtitle{A {{Sentiment}} and {{Style Controllable Approach}} for {{Chinese Poetry Generation}}}\bibmark{[A]}\@. \bibbooktitle{{{CIKM}} '21\thinspace{}\textnormal{: }Proceedings of the 30th {{ACM International Conference}} on {{Information}} \& {{Knowledge Management}}}[C]\@, \bibaddress{New York, NY, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computing Machinery}\@, \bibyear{2021}\thinspace{}\textnormal{: }\bibpages{4784\thinspace{}\textnormal{--}\thinspace{}4788}\@.
 
 \bibitem{LiFengGeHeQingGanKongZhiDeZhongGuoGuShiShengCheng2022}
-\bibauthor{李晓辰}\@. \bibtitle{风格和情感控制的中国古诗生成}\bibmark{[D]}\@. \bibaddress{哈尔滨}\thinspace{}\textnormal{: }\bibschool{哈尔滨工业大学}\@, \bibyear{2022}\@.
+\bibauthor{李 晓辰}\@. \bibtitle{风格和情感控制的中国古诗生成}\bibmark{[D]}\@. \bibaddress{哈尔滨}\thinspace{}\textnormal{: }\bibschool{哈尔滨工业大学}\@, \bibyear{2022}\@.
 
 \bibitem{renGeneratingChinesePoetry2023}
 \bibauthor{Ren X\@, Chai X\@, Mao M}\@. \bibtitle{Generating {{Chinese Poetry}} from {{Images Based}} on {{Deep Learning}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the 2023 3rd International Conference on Big Data, Artificial Intelligence and Risk Management}\@, \bibyear{2023}\thinspace{}\textnormal{: }\bibpages{134\thinspace{}\textnormal{--}\thinspace{}138}\@.
@@ -124,7 +124,7 @@
 \bibauthor{Wu Z\@, Chen X\@, Pan Z, et~al}\@. \bibtitle{{{DeepSeek-VL2}}: {{Mixture-of-Experts Vision-Language Models}} for {{Advanced Multimodal Understanding}}}\bibmark{[J]}\@, \bibyear{2024}\bibnumber{(arXiv:2412.10302)}\@.
 
 \bibitem{brownLanguageModelsAre2020}
-\bibauthor{Brown T\@, Mann B\@, Ryder N, et~al}\@. \bibtitle{Language {{Models}} Are {{Few-Shot Learners}}}\bibmark{[A]}\@. \bibbooktitle{Advances in {{Neural Information Processing Systems}}\thinspace{}\textnormal{: }Vol~33}[C]\@, \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Curran Associates, Inc.}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{1877\thinspace{}\textnormal{--}\thinspace{}1901}\@.
+\bibauthor{Brown T\@, Mann B\@, Ryder N, et~al}\@. \bibtitle{Language {{Models}} Are {{Few-Shot Learners}}}\bibmark{[A]}\@. \bibbooktitle{Advances in {{Neural Information Processing Systems}}\thinspace{}\textnormal{: }Vol~33}[C]\@, \bibaddress{Vancouver, Canada}\thinspace{}\textnormal{: }\bibpublisher{Curran Associates, Inc.}\@, \bibyear{2020}\thinspace{}\textnormal{: }\bibpages{1877\thinspace{}\textnormal{--}\thinspace{}1901}\@.
 
 \bibitem{weiChainofThoughtPromptingElicits2022}
 \bibauthor{Wei J\@, Wang X\@, Schuurmans D, et~al}\@. \bibtitle{Chain-of-{{Thought Prompting Elicits Reasoning}} in {{Large Language Models}}}\bibmark{[J]}\@. \bibjournal{Advances in Neural Information Processing Systems}\@, \bibyear{2022}\@, \bibvolume{35}\thinspace{}\textnormal{: }\bibpages{24824\thinspace{}\textnormal{--}\thinspace{}24837}\@.
@@ -132,7 +132,37 @@
 \bibitem{wangSelfConsistencyImprovesChain2023a}
 \bibauthor{Wang X\@, Wei J\@, Schuurmans D, et~al}\@. \bibtitle{Self-{{Consistency Improves Chain}} of {{Thought Reasoning}} in {{Language Models}}}\bibmark{[J]}\@, \bibyear{2023}\bibnumber{(arXiv:2203.11171)}\@.
 
+\bibitem{crispe}
+\bibauthor{Nigh M}\@. \bibtitle{{{ChatGPT3-Free-Prompt-List}}}\bibmark{[EB/OL]}\@. \url{https://github.com/mattnigh/ChatGPT3-Free-Prompt-List}\@. \bibyear{2023}\@.
+
+\bibitem{唐代诗格声律论研究}
+\bibauthor{刘 若缇}\@. \bibtitle{唐代诗格声律论研究}\bibmark{[D]}\@. \bibaddress{新北}\thinspace{}\textnormal{: }\bibschool{淡江大学}\@, \bibyear{2011}\@.
+
 \bibitem{liGeneratingClassicalChinese2018a}
 \bibauthor{Li J\@, Song Y\@, Zhang H, et~al}\@. \bibtitle{Generating {{Classical Chinese Poems}} via {{Conditional Variational Autoencoder}} and {{Adversarial Training}}}\bibmark{[A]}\@. \bibeditor{Riloff E\@, Chiang D\@, Hockenmaier J, et~al}\@. \bibbooktitle{Proceedings of the 2018 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}}}[C]\@, \bibaddress{Brussels, Belgium}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{3890\thinspace{}\textnormal{--}\thinspace{}3900}\@.
+
+\bibitem{WuRongHeYunLuTeZhengDeShiGeShengChengMoXing2024}
+\bibauthor{吴 林东\@, 何 向真\@, 万 福成}\@. \bibtitle{融合韵律特征的诗歌生成模型}\bibmark{[J]}\@. \bibjournal{计算机工程与应用}\@, \bibyear{2024}\@, \bibvolume{60}\bibnumber{(13)}\thinspace{}\textnormal{: }\bibpages{162\thinspace{}\textnormal{--}\thinspace{}170}\@.
+
+\bibitem{LiFeiYueTangShiGeLuDeTongJiFenXiJiWenTi2022}
+\bibauthor{李 飞跃}\@. \bibtitle{唐诗格律的统计分析及问题}\bibmark{[J]}\@. \bibjournal{文学遗产}\@, \bibyear{2022}\bibnumber{(05)}\thinspace{}\textnormal{: }\bibpages{44\thinspace{}\textnormal{--}\thinspace{}56}\@.
+
+\bibitem{zhipengJiugeHumanMachineCollaborative2019}
+\bibauthor{Zhipeng G\@, Yi X\@, Sun M, et~al}\@. \bibtitle{Jiuge: {{A Human-Machine Collaborative Chinese Classical Poetry Generation System}}}\bibmark{[A]}\@. \bibeditor{{Costa-juss{\`a}} M~R\@, Alfonseca E}\@. \bibbooktitle{Proceedings of the 57th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}: {{System Demonstrations}}}[C]\@, \bibaddress{Florence, Italy}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2019}\thinspace{}\textnormal{: }\bibpages{25\thinspace{}\textnormal{--}\thinspace{}30}\@.
+
+\bibitem{bird-loper-2004-nltk}
+\bibauthor{Bird S\@, Loper E}\@. \bibtitle{{NLTK}: The Natural Language Toolkit}\bibmark{[A]}\@. \bibbooktitle{Proceedings of the {ACL} Interactive Poster and Demonstration Sessions}[C]\@, \bibaddress{Barcelona, Spain}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational Linguistics}\@, \bibyear{2004}\thinspace{}\textnormal{: }\bibpages{214\thinspace{}\textnormal{--}\thinspace{}217}\@.
+
+\bibitem{rouge-chinese}
+\bibauthor{Chen J}\@. \bibtitle{rouge-chinese}\bibmark{[EB/OL]}\@. \url{https://github.com/Isaac-JL-Chen/rouge_chinese}\@. \bibyear{2022}\@.
+
+\bibitem{Bert-CCPoem}
+\bibauthor{Guo Z\@, Hu J\@, Son M}\@. \bibtitle{Bert-CCPoem}\bibmark{[EB/OL]}\@. \url{https://github.com/THUNLP-AIPoet/BERT-CCPoem}\@. \bibyear{2022}\@.
+
+\bibitem{Gushiwenwang}
+\bibtitle{古诗文网}\bibmark{[EB/OL]}\@. \url{https://www.gushiwen.cn/gushi/tangshi.aspx}\@. \bibyear{2025}\@.
+
+\bibitem{sczg}
+\bibtitle{第六届“诗词中国”传统诗词创作大赛}\bibmark{[EB/OL]}\@. \url{https://www.shicizhongguo.cn}\@. \bibyear{2023}\@.
 
 \end{thebibliography}

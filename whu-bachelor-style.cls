@@ -47,14 +47,20 @@
 % \makeatletter
 % \renewcommand{\chapterheadstartvskip}{\vspace*{0.5ex}} % 调整这里的值
 % \makeatother
-
+\fancypagestyle{empty_foot}{
+    \fancyhf{}    % 清空所有页眉页脚设置
+    % \fancyhead[C]{武汉大学本科毕业论文（设计）}
+    \fancyfoot[C]{\zihao{5}\thepage}  % 页码位于页脚居中
+    \renewcommand{\headrulewidth}{0pt} % 去掉页眉的横线
+}
 % % 默认页面页眉页脚样式 (空白)
-\pagestyle{empty} % 启动页眉页脚样式
+\pagestyle{empty_foot} % 启动页眉页脚样式
 % 带页眉的样式
 \fancypagestyle{plain}{
     \fancyhf{}
     \fancyhead[C]{武汉大学本科毕业论文（设计）}
     \fancyfoot[C]{\zihao{5}\thepage}  % 页码位于页脚居中
+    \renewcommand{\headrulewidth}{0.4pt} % 恢复页眉横线（默认粗细）
 }
 % \pagestyle{plain} % 启动页眉页脚样式
 
@@ -171,12 +177,24 @@
 % \setlength{\cftsubsubsecindent}{1.85em}
 
 %%% ---- 图表标题设置 ----- %%%
-\RequirePackage[labelsep=quad]{caption}     % 序号之后空一格写标题
-% 设置表格标题、图标题字体为宋体
-\captionsetup[figure]{textfont=bf}
-\renewcommand\figurename{\bf\songti\zihao{5} 图}
-\captionsetup[table]{textfont=bf}
-\renewcommand\tablename{\bf\songti\zihao{5} 表}
+\RequirePackage{caption}     
+% 设置表格标题、图标题字体为宋体五号加粗
+\DeclareCaptionFont{captionfontfigure}{\bf\songti\zihao{5}} %定义样式
+\captionsetup[figure]{
+  name={\bf\songti\zihao{5} 图},
+  font=captionfontfigure,
+  labelsep=quad % 序号之后空一格写标题
+}
+% \renewcommand\figurename{\bf{\songti\zihao{5} 图}}
+% \captionsetup[figure]{textfont=bf}
+\captionsetup[table]{
+  name={\bf\songti\zihao{5} 表},
+  font=captionfontfigure,
+  labelsep=quad % 序号之后空一格写标题
+}
+
+% \captionsetup[table]{textfont=bf}
+% \renewcommand\tablename{\bf\songti\zihao{5} 表}
 
 
 % 预定义（在导言区加入一次即可）
@@ -185,7 +203,7 @@
 \newcommand{\fakecaption}[2]{%
   \refstepcounter{figure} % 关键：增加 figure 计数器 + 设置引用标签
   \begin{center}
-    {\songti\zihao{5} \bf{图}~\thefigure\quad \songti\zihao{5}#1}
+    {\bf\songti\zihao{5} 图~\thefigure\quad \bf\songti\zihao{5}#1}
   \end{center}
   \label{#2}
 }
@@ -278,6 +296,7 @@
 % \bibliographystyle{data/whu}  % 参考文献样式
 \bibliographystyle{data/gbt7714-2005-whu}  % 参考文献样式
 
+\RequirePackage{xurl} % URL智能换换行
 
 % \RequirePackage[draft]{hyperref} % 引用 (但不生成链接)
 \RequirePackage{hyperref} % 引用
@@ -323,21 +342,21 @@
     %   密级\ ：\uline{\hfill \hfill}
     % \end{minipage}}
     % \par \vspace*{6em}
-
+    \vspace*{2cm} % 图片上的空白
     \begin{figure}[!htb]
       \centering
       \includegraphics[width=0.4\textwidth]
       {figures/whutitle.png}\\
       \label{fig:whutitle}
     \end{figure}
-    {\zihao{2}\vspace{\baselineskip}}
+    {\zihao{3}\vspace{\baselineskip}}
     \textbf{\songti \zihao{2}  本科毕业论文（设计）}
     \par \vspace{5em}
-    \begin{minipage}[c][6cm]{16cm}
+    \begin{minipage}[c][2.5cm]{16cm}  % 居中，高度，宽度
         \setlength{\baselineskip}{32pt} 
         \centering {\kaishu \zihao{1} \@ctitle}
     \end{minipage}
-    \par \vspace{4em}
+    \par \vspace{2.5cm}
     {\songti \zihao{-3}
       \begin{tabular}{cc}
         \makebox[4cm][s]{姓\ \ \ 名\ ：}                                 & \@cauthor   \\[1ex]
@@ -346,7 +365,7 @@
         \makebox[4cm][s]{学\ \ \ 院\ ：}   & \@cschool   \\[1ex]
         \makebox[4cm][s]{指导教师\ ：}                                 & \@cadvisor  \\[1ex]
       \end{tabular}}
-    \par \vspace{5em}
+    \par \vspace{3cm}
     {\songti \zihao{4} \@cdate}
   \end{center}
   \clearpage
