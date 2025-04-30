@@ -192,6 +192,10 @@
   font=captionfontfigure,
   labelsep=quad % 序号之后空一格写标题
 }
+% 设置表格内容字体为宋体五号
+\AtBeginEnvironment{tabular}{\songti\zihao{5}}
+\AtBeginEnvironment{tabularx}{\songti\zihao{5}}
+\AtBeginEnvironment{longtable}{\songti\zihao{5}}
 
 % \captionsetup[table]{textfont=bf}
 % \renewcommand\tablename{\bf\songti\zihao{5} 表}

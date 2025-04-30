@@ -9,7 +9,7 @@
 
 参考相关工作中评估模型表现的方法，给定一个质量获得认可的古诗，将评估模型的输出古诗与这一古诗进行对比，利用BLEU和ROUGE计算指标分数\upcite{chenPolishingModelMachineGenerated2024}。在这一思路下，原古诗的质量应当足够好，以确保指标分数能够反映被评估输出的质量；且模型的输入要与原古诗的内容十分相关，以确保指标分数能够反映模型的生成能力。
 
-为此，本文选择《唐诗三百首》中的名篇作为古诗原文，选择相应的白话文翻译作为文本输入。《唐诗三百首》是清代蘅塘退士孙洙编选的唐诗选集，问世不久便闻名遐迩，成为唐诗入门读物的首选，其中收录的唐诗均为名篇佳作。原书中除了律诗、绝句外，还收录有乐府、古体诗等形式多变的体裁，故不便于评估，本文仅选择律诗和绝句两种体裁的古诗进行测试，各体裁作品及数目见表~\ref{tab:test_generation_data}。此外，测试集选择的白话文翻译源自古诗文网\upcite{Gushiwenwang}。
+为此，本文选择《唐诗三百首》中的名篇作为古诗原文，选择相应的白话文翻译作为文本输入。《唐诗三百首》是清代蘅塘退士孙洙编选的唐诗选集，问世不久便闻名遐迩，成为唐诗入门读物的首选，其中收录的唐诗均为名篇佳作。原书中除了律诗、绝句外，还收录有乐府、古体诗等形式多变的体裁，故不便于评估，本文仅选择律诗和绝句两种体裁的古诗进行测试，各体裁作品及数目见表~\ref{tab:test_generation_data}。此外，相应的白话文翻译源自古诗文网\upcite{Gushiwenwang}。
 
 \begin{table}[ht]
     \centering
@@ -17,17 +17,17 @@
     \label{tab:test_generation_data}
     \begin{tabular}{|c|c|}
       \hline
-      \bf{体裁}& \bf{数量} \\
+       \bf{体裁}& \bf{数量} \\
       \hline
       七言律诗& 51\\
       \hline
-      七言绝句& 50\\
+       七言绝句& 50\\
       \hline
-      五言律诗& 80\\
+       五言律诗& 80\\
       \hline
-      五言绝句& 29\\
+       五言绝句& 29\\
       \hline
-      合计& 210\\
+       合计& 210\\
       \hline
     \end{tabular}
   \end{table}
@@ -261,7 +261,7 @@
 
 为验证图片模态的必要性，需要设置文图输入的消融对比实验。之前的工作表明，面对不同的输入模态组合，ERNIE-4.0的输出古诗质量会有显著的差异。本文尝试对DeepSeek-R1进行相同的实验，即固定文本和图像输入，分别测试仅文字、仅图像、文字与图像三种模态输入，对比生产的古诗质量。对生古诗质量的评价依据系统自身的评分功能。
 
-为此，使用5对图像和文本作为输入，对每一种样本，分别单独输入文本和图像，在三种不同的模态输入组合下分别进行10次生成，利用系统自身的评分功能来生成评分并取均值，最后对5种样本的得分取均值，以比较不同模态输入下生成古诗的质量差异，结果如表~\ref{tab:test_generation_modal}。
+为此，使用5对图像和文本作为输入，如表~\ref{tab:data_modality_test}（图源网络，文本输入由DeepSeek-VL2辅助生成）。对每一种样本，分别单独输入文本和图像，在三种不同的模态输入组合下分别进行10次生成，利用系统自身的评分功能来生成评分并取均值，最后对5种样本的得分取均值，以比较不同模态输入下生成古诗的质量差异，结果如表~\ref{tab:test_generation_modal}。
 
 \begin{table}[ht]
   \centering
@@ -282,7 +282,66 @@
 
 图像输入的作用体现在其包含的视觉场景信息，能够作为用户文本输入的补充，帮助用户表达隐晦的场景情感，以提高用户的体验。但就古诗生成的质量而言，DeepSeek-R1的能力足以生成高分数的古诗，因而无论输入如何，其总能输出质量较好的古诗，只是无法与用户的需求对齐。所以，从古诗质量的角度而言，文图跨模态的优势尚未显现，但对于用户而言，图片的输入仍然是有必要的，能够帮助用户更好地传达丰富的视觉场景信息，以至潜在的情感色彩。 
 
+\begin{longtable}{
+  |>{\centering\arraybackslash}m{0.4\textwidth} % 第一列，居中
+  |>{\centering\arraybackslash}m{0.6\textwidth}|   % 第二列，
+}
+\caption{文图古诗生成实验测试集} \label{tab:data_modality_test}\\
+\hline
+图片&文本\\
+\hline
+\endhead
 
+% \hline
+% \multicolumn{2}{|r|}{\small\sl 转下一页} \\
+% \hline
+\endfoot
+
+\endlastfoot
+
+
+\includegraphics[width=0.4\textwidth]{figures/图文测试/2.jpg} & 日出时分，山间草甸被晨光染成金色，仿佛时间静止。这一刻的宁静，让人忘却尘世喧嚣，只想与这美景共存。 \\
+\hline
+\includegraphics[width=0.4\textwidth]{figures/图文测试/3.jpg} & 落叶铺满的小径，每一步都踏着季节的尾声。阳光透过树梢，却照不进那片即将离去的绿意。感伤的是，这秋日的美景，终究抵不过时间的流逝。 \\
+\hline
+\includegraphics[width=0.4\textwidth]{figures/图文测试/4.jpg} & 落花有意，流水无情，这满地的花瓣，像是春天的泪痕。它们曾是枝头的骄傲，如今却只能随风飘散，让人不禁感叹生命的短暂和无常。 \\
+\hline
+\includegraphics[width=0.4\textwidth]{figures/图文测试/5.jpg} & 月挂枝头，清辉洒落，映照着这孤寂的冬枝。这轮明月，是否也在远方照亮了你的窗前？思念如潮，涌上心头，却只能遥寄于这无声的月色。 \\
+\hline
+\includegraphics[width=0.4\textwidth]{figures/图文测试/6.jpg} & 老树、旧屋、枯草，时光在这里仿佛凝固。这寂静的村落，承载着多少代人的记忆与故事。我在这里，寻找着那些被岁月遗忘的温馨。 \\
+\hline
+
+\end{longtable}
+
+
+% \begin{table}[ht]
+%   \centering
+%   \caption{文图古诗生成实验测试集}
+%   \label{tab:data_modality_test}
+%   \begin{tabularx}{\textwidth}{
+%     |>{\centering\arraybackslash}m{0.5\textwidth} % 第一列，居中
+%     |>{\centering\arraybackslash}m{0.45\textwidth}|   % 第二列，居中
+%     }
+%   \hline
+%   % \hline
+%   图片&文本\\
+%   \hline
+%   \includegraphics[width=0.5\textwidth]{figures/图文测试/2.jpg} & 日出时分，山间草甸被晨光染成金色，仿佛时间静止。这一刻的宁静，让人忘却尘世喧嚣，只想与这美景共存。 \\
+%   \hline
+%   \includegraphics[width=0.5\textwidth]{figures/图文测试/3.jpg} & 落叶铺满的小径，每一步都踏着季节的尾声。阳光透过树梢，却照不进那片即将离去的绿意。感伤的是，这秋日的美景，终究抵不过时间的流逝。 \\
+%   \hline
+%   \includegraphics[width=0.5\textwidth]{figures/图文测试/4.jpg} & 落花有意，流水无情，这满地的花瓣，像是春天的泪痕。它们曾是枝头的骄傲，如今却只能随风飘散，让人不禁感叹生命的短暂和无常。 \\
+%   \hline
+%   \includegraphics[width=0.5\textwidth]{figures/图文测试/5.jpg} & 月挂枝头，清辉洒落，映照着这孤寂的冬枝。这轮明月，是否也在远方照亮了你的窗前？思念如潮，涌上心头，却只能遥寄于这无声的月色。 \\
+%   \hline
+%   \includegraphics[width=0.5\textwidth]{figures/图文测试/6.jpg} & 老树、旧屋、枯草，时光在这里仿佛凝固。这寂静的村落，承载着多少代人的记忆与故事。我在这里，寻找着那些被岁月遗忘的温馨。 \\
+%   \hline
+%   % \includegraphics[width=0.4\textwidth]{example-image-b} & 这是图片B的说明文字 \\
+%   \end{tabularx}
+% \end{table}
+  
+
+\clearpage
 \section{本章小结}
 
 本章通过一系列实验对系统的古诗生成和评价功能进行了全面验证。实验结果表明，系统在不同方面表现出了一定的优势和局限性。
