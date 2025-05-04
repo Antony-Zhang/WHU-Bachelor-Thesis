@@ -197,6 +197,22 @@
 \AtBeginEnvironment{tabularx}{\songti\zihao{5}}
 \AtBeginEnvironment{longtable}{\songti\zihao{5}}
 
+% % 为封面表格定义一个新的环境 covertabular
+% \RequirePackage{etoolbox} % 确保使用了 etoolbox 宏包
+% % 定义一个真正干净的表格环境，避免触发 AtBeginEnvironment{tabular}
+% \newenvironment{innercovertabular}[1]
+%   {\begin{tabular}{#1}}
+%   {\end{tabular}}
+
+% % 定义封面专用环境，插入所需字号和字体
+% \newenvironment{covertabular}[1]
+%   {\begingroup
+%    \songti\zihao{4}%
+%    \begin{innercovertabular}{#1}}
+%   {\end{innercovertabular}%
+%    \endgroup}
+
+
 % \captionsetup[table]{textfont=bf}
 % \renewcommand\tablename{\bf\songti\zihao{5} 表}
 
@@ -337,6 +353,48 @@
 \def\cdate#1{\def\@cdate{#1}}\def\@cdate{}            % 日期
 
 % 论文标题页
+
+% \newenvironment{covertabular}[1][cc]  % 定义一个新的环境 covertabular，用于封面表格
+%   {\songti\zihao{4}\begin{tabular}[#1]}
+%   {\end{tabular}}
+
+% \newenvironment{covertabular}[1]{     % 定义一个新的环境 covertabular，用于封面表格
+%     \songti\zihao{4} % 设置字体和字号
+%     \begin{tabular}{#1} % 开始tabular环境
+% }{
+%     \end{tabular} % 结束tabular环境
+% }
+
+
+% \newenvironment{covertabular}[1]{%
+%     \let\oldtabular\tabular % 保存原始的 tabular
+%     \let\oldendtabular\endtabular % 保存原始的 endtabular
+%     \renewenvironment{tabular}[1]{\oldtabular{##1}}{\oldendtabular} % 临时覆盖 tabular 定义
+%     \songti\zihao{4} % 设置封面表格的字体和字号
+%     \begin{tabular}{#1} % 开始 tabular
+% }{%
+%     \end{tabular} % 结束 tabular
+% }
+
+% \makeatletter
+% \newenvironment{covertabular}[1]{%
+%     \songti\zihao{4}% 设置封面表格的字体和字号
+%     \let\@halignto\@empty% 确保对齐方式正确
+%     \@tabular{@{}#1@{}}% 直接调用底层 tabular 实现
+% }{%
+%     \endtabular% 结束 tabular
+% }
+% \makeatother
+
+% 定义封面和声明专用的表格环境
+% \newenvironment{covertabular}[1]
+%   {\begingroup
+%    \songti\zihao{4}% 设置为宋体四号
+%    \begin{array}{#1}}
+%   {\end{array}
+%    \endgroup}
+
+% \AtBeginEnvironment{tabular}{\songti\zihao{4}}  % 设置表格字体为小四号，专门用于封面
 \def\maketitlepage{
   \thispagestyle{empty}
   \begin{center}
@@ -361,14 +419,13 @@
         \centering {\kaishu \zihao{1} \@ctitle}
     \end{minipage}
     \par \vspace{2.5cm}
-    {\songti \zihao{-3}
-      \begin{tabular}{cc}
-        \makebox[4cm][s]{姓\ \ \ 名\ ：}                                 & \@cauthor   \\[1ex]
-        \makebox[4cm][s]{学\ \ \ 号\ ：}                                 & \@stunum   \\[1ex]
-        \makebox[4cm][s]{专\ \ \ 业\ ：}                                 & \@cmajor    \\[1ex]
-        \makebox[4cm][s]{学\ \ \ 院\ ：}   & \@cschool   \\[1ex]
-        \makebox[4cm][s]{指导教师\ ：}                                 & \@cadvisor  \\[1ex]
-      \end{tabular}}
+    \begin{tabular}{cc}  % 显式指定字号和行间距
+      \zihao{4}\makebox[4cm][s]{姓\ \ \ 名\ ：}       & \zihao{4}\@cauthor   \\[14pt]
+      \zihao{4}\makebox[4cm][s]{学\ \ \ 号\ ：}       & \zihao{4}\@stunum   \\[14pt]
+      \zihao{4}\makebox[4cm][s]{专\ \ \ 业\ ：}       & \zihao{4}\@cmajor    \\[14pt]
+      \zihao{4}\makebox[4cm][s]{学\ \ \ 院\ ：}       & \zihao{4}\@cschool   \\[14pt]
+      \zihao{4}\makebox[4cm][s]{指导教师\ ：}          & \zihao{4}\@cadvisor  \\[14pt]
+    \end{tabular}
     \par \vspace{3cm}
     {\songti \zihao{4} \@cdate}
   \end{center}
@@ -389,8 +446,8 @@
     % 作者签名： \hspace{2cm}   指导教师签名：  \hspace{2cm} \newline
     % 日 \quad 期：  \hspace{1cm}年 \hspace{1cm} 月 \hspace{1cm} 日 
     \begin{tabular}{ll} % 调整列宽以适应你的排版
-      &作者签名： \hspace{2cm}   指导教师签名：  \hspace{3cm} \hfill \\[2ex] % 填充空白 % 额外添加 2ex 的垂直空间
-      &日 \quad 期：  \hspace{1cm}年 \hspace{0.5cm} 月 \hspace{0.5cm} 日 
+      &\zihao{-4}作者签名： \hspace{2cm}   指导教师签名：  \hspace{3cm} \hfill \\[12pt] % 填充空白 % 额外添加 2ex 的垂直空间
+      &\zihao{-4}日 \quad 期：  \hspace{1cm}年 \hspace{0.5cm} 月 \hspace{0.5cm} 日 
     \end{tabular}
   \end{flushright}
   }
@@ -410,8 +467,8 @@
   \vspace*{30pt}\newline
   \begin{flushright} % 整个表格右对齐
     \begin{tabular}{ll} % 调整列宽以适应你的排版
-      &作者签名： \hspace{2cm}   指导教师签名：  \hspace{3cm} \hfill \\[2ex] % 填充空白 % 额外添加 2ex 的垂直空间
-      &日 \quad 期：  \hspace{1cm}年 \hspace{0.5cm} 月 \hspace{0.5cm} 日 
+      &\zihao{-4}作者签名： \hspace{2cm}   指导教师签名：  \hspace{3cm} \hfill \\[12pt] % 填充空白 % 额外添加小四字的垂直空间
+      &\zihao{-4}日 \quad 期：  \hspace{1cm}年 \hspace{0.5cm} 月 \hspace{0.5cm} 日 
     \end{tabular}
   \end{flushright}
   % 作者签名: \underline{\hspace{2.5cm}}

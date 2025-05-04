@@ -61,7 +61,7 @@
 \bibauthor{Liu L\@, Wan X\@, Guo Z}\@. \bibtitle{{{Images2Poem}}: {{Generating Chinese Poetry}} from {{Image Streams}}}\bibmark{[A]}\@. \bibbooktitle{{{MM}} '18\thinspace{}\textnormal{: }Proceedings of the 26th {{ACM}} International Conference on {{Multimedia}}}[C]\@, \bibaddress{New York, NY, USA}\thinspace{}\textnormal{: }\bibpublisher{Association for Computing Machinery}\@, \bibyear{2018}\thinspace{}\textnormal{: }\bibpages{1967\thinspace{}\textnormal{--}\thinspace{}1975}\@.
 
 \bibitem{xuHowImagesInspire2018}
-\bibauthor{Xu L\@, Jiang L\@, Qin C, et~al}\@. \bibtitle{How {{Images Inspire Poems}}: {{Generating Classical Chinese Poetry}} from {{Images}} with {{Memory Networks}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2018}\@, \bibvolume{32}\bibnumber{(1)}\@.
+\bibauthor{Xu L\@, Jiang L\@, Qin C, et~al}\@. \bibtitle{How {{Images Inspire Poems}}: {{Generating Classical Chinese Poetry}} from {{Images}} with {{Memory Networks}}}\bibmark{[J]}\@. \bibjournal{Proceedings of the AAAI Conference on Artificial Intelligence}\@, \bibyear{2018}\@, \bibvolume{32}\bibnumber{(1)}\thinspace{}\textnormal{: }\bibpages{5618\thinspace{}\textnormal{--}\thinspace{}5625}\@.
 
 \bibitem{doshi-velezRigorousScienceInterpretable2017}
 \bibauthor{{Doshi-Velez} F\@, Kim B}\@. \bibtitle{Towards {{A Rigorous Science}} of {{Interpretable Machine Learning}}}\bibmark{[J]}\@, \bibyear{2017}\bibnumber{(arXiv:1702.08608)}\@.
