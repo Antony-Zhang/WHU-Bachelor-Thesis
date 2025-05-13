@@ -1,9 +1,9 @@
 % !TeX root = ..\main.tex
 % Chapter 2
 
-\chapter{古诗生成与大模型}
+\chapter{现有技术介绍}
 
-本章主要介绍古诗生成任务的基本要求、现有技术方案以及古诗质量的度量方法，简要介绍DeepSeek-R1与VL2两个大模型，为后续的系统设计方案作铺垫。
+本章主要介绍古诗生成任务的基本要求和古诗质量的度量方法，并简要介绍DeepSeek-R1与VL2两个大模型，为后续的系统设计方案作铺垫。
 
 \section{古诗生成任务概述}
 
@@ -18,9 +18,6 @@
 \end{enumerate}
 
 排律是格律的变体，其延续律诗严格的格律要求，但篇幅较长，通常在十句以上，不过押韵要求较为宽松，中途可换韵。排律的篇幅和结构更为复杂，十分考验创作者的文学功底和创作技巧，因而在传统诗歌中，排律的作品相对较少。
-
-% \section{现有方案} TODO 
-
 
 
 \section{古诗质量评估}
@@ -120,29 +117,6 @@ DeepSeek-VL2\upcite{wuDeepSeekVL2MixtureofExpertsVisionLanguage2024}采用了三
 
 DeepSeek-VL2的训练采用了三阶段训练范式，即先使用120万个图文对来建立跨模态关联，再使用混合$70\%$的图文数据和$30\%$纯文本数据来进行预训练，最后再专注于OCR增强和文档理解方面的监督微调。值得一提的是，DeepSeek-VL2的MoE架构包含有64个专家分组，每组都能处理特定的模态组合，并能在训练中通过负载均衡损失函数来优化专家激活分布，实现稀疏激活，从而大大提高推理效率（在总体176B的参数量下仅激活4.5B参数）。
 
-
-% \subsection{Qwen-2.5-VL}
-
-% Qwen2.5-VL\upcite{qwen2.5vl_technical_report_2024}创新性地构建了四阶段协同架构，整合高精度视觉解码、动态跨模态对齐、多尺度特征融合及专家级语言建模模块，形成端到端的视觉语言理解系统。
-
-% \begin{enumerate}
-%     \item **多尺度视觉编码器（Multi-scale Vision Encoder）**：在Vision Transformer基础上引入动态金字塔结构（Dynamic Pyramid Network），通过渐进式下采样策略生成$16\times16$至$128\times128$的多层级特征图谱。针对中文场景特有的密集文本图像（如古籍扫描件），创新性地嵌入自适应注意力掩码机制，通过像素级语义权重分配提升细粒度文字识别能力。该架构支持最高$4096\times4096$分辨率输入，并采用分块并行计算策略将显存占用降低至传统方法的$15\%$（如图~\ref{fig:qwen2.5vl_pyramid}所示）。
-%     \begin{figure}[ht]
-%         \centering
-%         \includegraphics[width=1\textwidth]
-%         {figures/qwen2.5vl_pyramid.pdf}\\
-%         \caption{Qwen2.5-VL多尺度特征提取框架\upcite{qwen2.5vl_technical_report_2024}}
-%         \label{fig:qwen2.5vl_pyramid}
-%     \end{figure}
-
-%     \item **跨模态对齐中枢（Cross-modal Alignment Hub）**：设计双流融合网络实现视觉特征与文本嵌入的深度对齐。其中空间注意力流采用可变形卷积核动态捕捉局部关联，语义融合流则通过对比学习强化跨模态一致性。特别针对中文长文本特性，引入层次化位置编码（Hierarchical Positional Encoding）解决图文错位问题，在COCO-CN数据集上实现$91.2\%$的图文匹配准确率。
-
-%     \item **专家级语言解码器（Expert Language Decoder）**：基于MoE架构构建包含128个专业领域专家的混合网络，每个输入token通过门控机制激活Top-3专家组合。创新性地引入动态路由损失函数（Dynamic Routing Loss），通过强化学习优化专家协作模式，在保持$175B$参数总量的前提下实现$3.2B$有效激活参数的精准调控。该设计使模型在中文法律文档解析任务中达到$98.7\%$的实体识别F1值。
-
-%     \item **多模态记忆网络（Multimodal Memory Network）**：构建可扩展的外部记忆模块存储视觉原型特征，通过注意力检索机制实现长程依赖建模。针对中文场景下的场景图生成任务，设计三元组增强训练策略，使模型在Visual Genome中文版的场景理解准确率提升至$79.4\%$。
-% \end{enumerate}
-
-% Qwen2.5-VL采用四阶段渐进式训练策略：首先利用$2.4M$高质量图文对建立基础跨模态关联，随后通过混合$65\%$图文数据与$35\%$纯文本数据进行预训练，最后针对中文特定领域（古籍识别、票据分析等）开展监督微调。其稀疏激活机制通过动态负载均衡损失实现专家资源优化配置，在$175B$总参数规模下实际推理仅激活$5.6B$参数，推理效率较传统架构提升$68\%$。特别开发的中文视觉词典（Chinese Visual Lexicon）包含$8M$个细粒度实体映射关系，显著增强模型对书法艺术、篆刻印章等传统文化元素的解析能力。
 
 \subsection{DeepSeek-R1}
 

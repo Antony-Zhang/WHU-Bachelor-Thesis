@@ -16,6 +16,19 @@
 %%% ---- 载入Class ----- %%%
 \LoadClass[a4paper,openany,oneside]{book} % A4大小，book布局
 
+% 高亮文本
+\RequirePackage{soul}
+\newcommand{\hlsection}[1]{\section{\texorpdfstring{\hl{#1}}{#1}}}
+
+\newcommand{\hlchapter}[1]{\chapter{\texorpdfstring{\hl{#1}}{#1}}}
+
+
+% 取消英文连字符，并设置两端对齐
+\RequirePackage[none]{hyphenat}  % 完全禁用连字符
+\hyphenpenalty=10000         % 禁止断词
+\tolerance=2000              % 允许更宽松的断行（避免 Overfull \hbox 警告）
+\emergencystretch=2em        % 紧急情况下拉伸间距
+
 \RequirePackage[AutoFakeBold=true,AutoFakeSlant=true]{xeCJK}[2017/08/08]
 \RequirePackage[zihao=-4,UTF8,heading=true]{ctex}[2016/12/27]
 \RequirePackage{xeCJKfntef}
